@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "../../components/Button/Button";
-import YouTubeVideo from "../../components/Video/YouTubeVideo";
+import Countries from "../Countries/Countries";
 
 import "./Main.scss";
 
@@ -11,7 +11,7 @@ export default function Main() {
         <Button action={() => console.log("clicked")} mod="big">
           Example Button
         </Button>
-        <YouTubeVideo videoId={"Gb0TQ7VeApY"} />
+        <Countries />
       </div>
     </>
   );
