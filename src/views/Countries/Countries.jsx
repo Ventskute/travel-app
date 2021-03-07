@@ -7,7 +7,7 @@ import {
   Link,
 } from "react-router-dom";
 import Country from "../Country/Country";
-export default function Countries() {
+export default function Countries({ countryName }) {
   let match = useRouteMatch();
 
   return (
@@ -16,12 +16,12 @@ export default function Countries() {
 
       <ul>
         <li>
-          <Link to={`countries/Belarus`}>Belarus</Link>
+          <Link to={`${match.url}/${countryName}`}>{countryName}</Link>
         </li>
       </ul>
       <Switch>
-        <Route path={`countries/:countryName`}>
-          <Country />
+        <Route path={`${match.path}/:${countryName}`}>
+          <Country name={countryName} />
         </Route>
       </Switch>
     </>
