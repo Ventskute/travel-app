@@ -1,0 +1,36 @@
+[
+  {
+    "id": "60250368d342c8267c02a558",
+    "imageUrl": "www.example.com/example.jpg",
+    "videoUrl": "www.example.com/example.mp4",
+    "ISOCode": "US",
+    "capitalLocation": {
+      "coordinates": [0],
+      "type": "Point"
+    },
+    "localizations": [
+      {
+        "name": "string",
+        "capital": "string",
+        "description": "string"
+      }
+    ]
+  },
+  {
+    "id": "7788test",
+    "imageUrl": "www.example.com/example.jpg",
+    "videoUrl": "www.example.com/example.mp4",
+    "ISOCode": "US",
+    "capitalLocation": {
+      "coordinates": [0],
+      "type": "Point"
+    },
+    "localizations": [
+      {
+        "name": "string",
+        "capital": "string",
+        "description": "string"
+      }
+    ]
+  }
+]
