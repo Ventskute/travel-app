@@ -13,7 +13,7 @@ import playerImg from '../../assets/img/player.jpeg'
 
 function Country() {
   let { countryName } = useParams();
-  
+
   return (
     <div className="country">
       <Header />
