@@ -7,9 +7,6 @@ import data from '../../components/Map/blr.json';
 import './Country.scss'
 import Swiper from '../../components/Swiper/Swiper';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
-import mapImg from '../../assets/img/map.jpeg'
-import playerBackImg from '../../assets/img/player-background.jpeg'
-import playerImg from '../../assets/img/player.jpeg'
 
 function Country() {
   let { countryName } = useParams();
