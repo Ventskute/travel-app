@@ -11,9 +11,9 @@ function Country() {
     <div className="country">
       <Header />
       <h2>Country {countryName}</h2>
-      <section className="country-logo">
-        <div className="wrapper country-logo__wrapper">
-          <div className="country-logo__card">
+      <section className="country-promo">
+        <div className="wrapper country-promo__wrapper">
+          <div className="country-promo__card">
             <img className="card__image" src="./img/layout-country.jpeg" alt="layout-country"></img>
             <h2 className="card__title">Magical Paris</h2>
             <p className="card__subtitle">
@@ -21,7 +21,7 @@ function Country() {
               Some of the most famous museums, food and landmarks are waiting for you in Paris.
             </p>
           </div>
-          <div className="country-logo__widgets">
+          <div className="country-promo__widgets">
             <div className="widgets__current-wather">wather</div>
             <div className="widgets__current-rate">rate</div>
             <div className="widgets__current-time">time</div>
