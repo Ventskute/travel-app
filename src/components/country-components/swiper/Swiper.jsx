@@ -20,6 +20,6 @@ const images = [
 
 export default function Swiper(){
   return (
-    <ImageGallery items={images} />
+    <ImageGallery items={images} onSlide={(a)=>console.log(a)}/>
   );
 };
