@@ -1,5 +1,14 @@
-.Country-slider__slides_1st {
-  // background-image: url('../../../dist/img/slider-img1.jpeg');
+
+//country
+.country-slider__slides_1st {
   height: 150px;
-  background-color: red;
+}
+
+.country-slider__slides{
+display: flex;
+}
+
+.slides{
+width: 372px;
+height: 261px;
 }
