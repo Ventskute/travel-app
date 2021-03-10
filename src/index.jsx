@@ -1,18 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Country from "./views/Country/Country";
 import Main from "./views/Main/Main";
 
 export default function App() {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/">
-            <Main />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/:countryName" component={Country} />
+        <Route path="/" component={Main} />
+      </Switch>
     </Router>
   );
 }
