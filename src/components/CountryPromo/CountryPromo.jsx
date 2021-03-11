@@ -1,6 +1,6 @@
 import React from 'react';
-import { Widgets } from '..';
-import layoutCountry from '../../../assets/img/layout-country.jpeg';
+import  {Widgets}  from '../';
+import layoutCountry from '../../assets/img/layout-country.jpeg';
 
 function CountryPromo() {
   return (

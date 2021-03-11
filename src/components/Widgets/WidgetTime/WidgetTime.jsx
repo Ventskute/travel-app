@@ -24,7 +24,7 @@ function WidgetTime() {
 
   React.useEffect(() => {
     getCurrentDate();
-    console.log(getCurrentDate());
+    // console.log(getCurrentDate());
   }, [dateOptionsState]);
 
   const getCurrentDate = () => {

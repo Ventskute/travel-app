@@ -123,7 +123,7 @@ function Country() {
             backgroundImage: `url(${playerBackImg})`,
           }}>
           <div className="country-video-block__title">See Dubai from the sky</div>
-          <div class="video-player">
+          <div className="video-player">
             <img src={playerImg} alt="" />
           </div>
         </div>
