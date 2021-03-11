@@ -19,7 +19,7 @@ export const s = [
         id: 1_1,
         name: 'asd',
         description: 'asdf',
-        rating: [{ userID: 11242424, userName: 'qwe', userRating: '1-5' }], //стоит ли оставлять здесь, или же создать другой объект
+        rating: [{ userID: 11242424, userRating: '1-5' },], //стоит ли оставлять здесь, или же создать другой объект
       },
     ],
     map: 'все, что нужно для карты',
