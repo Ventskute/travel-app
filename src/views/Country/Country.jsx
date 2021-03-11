@@ -5,7 +5,10 @@ import Header from "../../components/Header/Header";
 import Map from '../../components/Map/Map';
 import data from '../../components/Map/blr.json';
 import './Country.scss'
-import { Swiper, Map, VideoPlayer, CountryPromo } from '../../components/Country-components';
+import { Swiper, CountryPromo } from '../../components/Country-components';
+import mapImg from '../../assets/img/map.jpeg'
+import playerBackImg from '../../assets/img/player-background.jpeg'
+import playerImg from '../../assets/img/player.jpeg'
 
 function Country() {
   return (
@@ -107,10 +110,21 @@ function Country() {
         </div>
       </section>
       <section className="country-map">
-        <Map />
+        {/* <Map /> */}
+        <div className="wrapper country-map__wrapper">
+          <img className="country-map__map" src={mapImg} alt="" />
+        </div>
       </section>
       <section className="country-video-block">
-        <VideoPlayer />
+        {/* <VideoPlayer /> */}
+        <div className="wrapper country-video-block__wrapper" style={{
+            backgroundImage: `url(${playerBackImg})`,
+          }}>
+            <div className="country-video-block__title">See Dubai from the sky</div>
+            <div class="video-player">
+              <img src={playerImg} alt="" />
+            </div>
+          </div>
       </section>
       <Map data={data} />
       <Footer />
