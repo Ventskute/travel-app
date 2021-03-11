@@ -12,7 +12,11 @@ const toggleFullScreen = () => {
 
 export default function CountryMap() {
   return (
-    <YMaps>
+    <YMaps
+      query={{
+        lang: 'en_US',
+      }}
+    >
       <div>
         My awesome application with maps!
         <Map defaultState={data}>
