@@ -1,18 +1,30 @@
-import React, { useEffect, useState } from "react";
-import Button from "../../components/Button/Button";
-import YouTubeVideo from "../../components/Video/YouTubeVideo";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 import "./Main.scss";
 
 export default function Main() {
   return (
     <>
-      <div className="main">
-        <Button action={() => console.log("clicked")} mod="big">
-          Example Button
-        </Button>
-        <YouTubeVideo videoId={"Gb0TQ7VeApY"} />
-      </div>
+      <Header />
+      <main className="main">
+        <div className="container">
+          <ul>
+            <li>
+              <Link to="/Belarus">Belarus</Link>
+            </li>
+            <li>
+              <Link to="/Japan">Japan</Link>
+            </li>
+            <li>
+              <Link to="/Sweden">Sweden</Link>
+            </li>
+          </ul>
+        </div>
+      </main>
+      <Footer />
     </>
   );
 }
