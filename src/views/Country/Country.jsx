@@ -117,14 +117,16 @@ function Country() {
       </section>
       <section className="country-video-block">
         {/* <VideoPlayer /> */}
-        <div className="wrapper country-video-block__wrapper" style={{
+        <div
+          className="wrapper country-video-block__wrapper"
+          style={{
             backgroundImage: `url(${playerBackImg})`,
           }}>
-            <div className="country-video-block__title">See Dubai from the sky</div>
-            <div class="video-player">
-              <img src={playerImg} alt="" />
-            </div>
+          <div className="country-video-block__title">See Dubai from the sky</div>
+          <div class="video-player">
+            <img src={playerImg} alt="" />
           </div>
+        </div>
       </section>
       <Map data={data} />
       <Footer />
