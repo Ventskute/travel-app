@@ -6,6 +6,10 @@
 }
 
 body {
-  // overflow: hidden;
-  background-color:#D7D7D7;
+  background-color: #D7D7D7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
