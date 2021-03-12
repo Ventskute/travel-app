@@ -4,9 +4,9 @@ import { YMaps, Map, FullscreenControl, GeoObject, Panorama, TypeSelector } from
 
 import './Map.scss';
 
-import data from './blr.json';
+export default function CountryMap(props) {
+  const { data } = props;
 
-export default function CountryMap() {
   return (
     <YMaps
       query={{
