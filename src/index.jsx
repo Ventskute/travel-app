@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Country from "./views/Country/Country";
+import Main from "./views/Main/Main";
 
-import './index.scss';
-import Main from './views/Main/Main';
-import { load, parseSave, save, setDefault } from './utils/save';
-
-const rootElement = document.getElementById('root');
-
-function App() {
-  useEffect(() => {
-    if (!load()) setDefault();
-    parseSave();
-
-	// check fullscreen
-    const query = matchMedia('all and (display-mode: fullscreen');
-
-    query.onchange = (e) => {
-      const checkbox = document.querySelector('.checkbox.fullscreen');
-      checkbox && (checkbox.checked = query.matches);
-    };
-  }, [])
-
-  return <>
-    <Main/>
-  </>;
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/:countryName" component={Country} />
+        <Route path="/" component={Main} />
+      </Switch>
+    </Router>
+  );
 }
 
-ReactDOM.render(
-  <App />,
-  rootElement);
+ReactDOM.render(<App />, document.getElementById("root"));

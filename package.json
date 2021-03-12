@@ -25,6 +25,7 @@
     "koa2-swagger-ui": "^5.0.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "sass": "^1.32.8",
     "sass-loader": "^9.0.3",
     "style-loader": "^2.0.0",
