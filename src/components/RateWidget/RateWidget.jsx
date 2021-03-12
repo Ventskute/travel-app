@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './RateWidget.scss';
 
 function RateWidget() {
   const [rates, setRates] = React.useState([]);
@@ -19,7 +20,7 @@ function RateWidget() {
         });
       });
   }, [rates.length]);
-  
+
   const fetchRates = () => {
     axios
       .get(
@@ -33,7 +34,6 @@ function RateWidget() {
         });
       });
   };
-  
 
   return <div>{JSON.stringify(rates)}</div>;
 }
