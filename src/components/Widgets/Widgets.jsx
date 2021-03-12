@@ -1,5 +1,6 @@
 import React from 'react';
-import { WidgetTime, WidgetRate } from '../';
+import WidgetTime from './WidgetTime/WidgetTime';
+import WidgetRate from './WidgetRate/WidgetRate';
 import './Widgets.scss';
 
 function Widgets() {

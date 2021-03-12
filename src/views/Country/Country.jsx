@@ -5,7 +5,8 @@ import Header from "../../components/Header/Header";
 import Map from '../../components/Map/Map';
 import data from '../../components/Map/blr.json';
 import './Country.scss'
-import { Swiper, CountryPromo } from '../../components/Country-components';
+import Swiper from '../../components/Swiper/Swiper';
+import CountryPromo from '../../components/CountryPromo/CountryPromo';
 import mapImg from '../../assets/img/map.jpeg'
 import playerBackImg from '../../assets/img/player-background.jpeg'
 import playerImg from '../../assets/img/player.jpeg'

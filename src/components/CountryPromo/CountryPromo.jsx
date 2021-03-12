@@ -1,5 +1,5 @@
 import React from 'react';
-import  {Widgets}  from '../';
+import Widgets  from '../Widgets/Widgets';
 import layoutCountry from '../../assets/img/layout-country.jpeg';
 import './CountryPromo.scss';
 
