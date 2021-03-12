@@ -14,6 +14,7 @@ export default function Country() {
       <h2>Country {countryName}</h2>
       <Map data={data} />
       <Footer />
+      
     </>
   );
 }
