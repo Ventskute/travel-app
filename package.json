@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all -p -r start-frontend start-backend",
+    "start": "npm-run-all -p -r start:frontend start:backend",
     "build": "webpack",
-    "start-backend": "(cd backend/ & npm start)",
-    "start-frontend": "webpack-dev-server --open"
+    "start:backend": "(cd backend/ & npm start)",
+    "start:frontend": "webpack-dev-server --open"
   },
   "author": "",
   "license": "ISC",
