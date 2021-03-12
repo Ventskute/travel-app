@@ -11,13 +11,13 @@ function AttractionsRating() {
   const getRating = (index) => {
     setRating(index + 1);
   };
+
   return (
-    <>
       <div className={`attractions-rating`}>
         {rateArr.map((el, index) => (
           <div
             className={`attractions-rating__point attractions-rating__point_${
-                index >= rating ? 'disabled' : 'selected'
+              index >= rating ? 'disabled' : 'selected'
             }`}
             onClick={() => getRating(index)}
             style={
@@ -30,7 +30,6 @@ function AttractionsRating() {
           </div>
         ))}
       </div>
-    </>
   );
 }
 
