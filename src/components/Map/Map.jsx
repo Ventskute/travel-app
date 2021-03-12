@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { YMaps, Map as YMap, FullscreenControl, GeoObject, TypeSelector } from 'react-yandex-maps';
+import { YMaps, Map as YMap, FullscreenControl, GeoObject, TypeSelector, Placemark, Polygon } from 'react-yandex-maps';
 
 import './Map.scss';
 
@@ -27,19 +27,16 @@ export default function Map(props) {
         }}
       >
         <FullscreenControl/>
-        <GeoObject
-          geometry={{
-            type: 'Point',
-            coordinates: data.center
-          }}
+        <Placemark
+          geometry={data.center}
           properties={{
-            iconContent: data.capital,
+            iconCaption: data.capital,
           }}
           options={{
-            preset: 'islands#blackStretchyIcon'
+            preset: 'islands#redDotIconWithCaption'
           }}
         />
-        <GeoObject
+        <Polygon
           geometry={data.geometry}
           options={{
             fillColor: '#FF000011',
