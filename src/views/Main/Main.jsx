@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import RateWidget from '../../components/RateWidget/RateWidget'
 
-import "./Main.scss";
+import './Main.scss';
 
 export default function Main() {
   return (
