@@ -24,7 +24,6 @@ export default function Main() {
             </li>
           </ul>
         </div>
-        <AttractionsRating />
       </main>
       <Footer />
     </>
