@@ -2,36 +2,30 @@ import React from 'react';
 import './WidgetTime.scss';
 
 function WidgetTime() {
-  const [dateOptionsState, setDateOptionsState] = React.useState({
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    timeZone: 'America/New_York',
-    i: false,
-  });
+  const [currentDate, setCurrentDate] = React.useState(getCurrentDate());
+
   React.useEffect(() => {
     setInterval(() => {
-        setDateOptionsState({
-            ...dateOptionsState,
-            i: true,
-        })
-      }, 1000);
+      setCurrentDate(getCurrentDate());
+    }, 1000);
   }, []);
 
-  React.useEffect(() => {
-    getCurrentDate();
-  }, [dateOptionsState]);
-
-  const getCurrentDate = () => {
+  function getCurrentDate() {
+    const dateOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZone: 'America/New_York',
+    };
     const date = new Date();
-    return date.toLocaleString('en-US', dateOptionsState);
-  };
+    return date.toLocaleString('en-US', dateOptions);
+  }
 
-  return <div className="widgets__current-time">{getCurrentDate()}</div>;
+  return <div className="widgets__current-time">{currentDate}</div>;
 }
 
 export default WidgetTime;
