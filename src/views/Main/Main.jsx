@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import AttractionsRating from '../../components/AttractionsRating/AttractionsRating'
 
 import "./Main.scss";
 
@@ -23,6 +24,7 @@ export default function Main() {
             </li>
           </ul>
         </div>
+        <AttractionsRating />
       </main>
       <Footer />
     </>
