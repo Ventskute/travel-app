@@ -25,14 +25,14 @@
         }
       }
     },
-    "/countries/{countryId}": {
+    "/countries/{countryISO}": {
       "get": {
         "tags": ["all users"],
         "parameters": [
           {
-            "name": "countryId",
+            "name": "countryISO",
             "in": "path",
-            "description": "country id to detail",
+            "description": "country ISO to detail",
             "required": true,
             "style": "simple",
             "explode": false,
