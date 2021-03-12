@@ -217,6 +217,51 @@
             "$ref": "#/components/schemas/User"
           }
         }
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "passwprd": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "body_1": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "profileImage": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
+      },
+      "inline_response_200_1": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
       }
     }
   }
