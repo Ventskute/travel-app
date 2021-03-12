@@ -10,7 +10,7 @@ function AttractionsRating() {
 
   const getRating = (index) => {
     ratingArray.map((el, i) => {
-      i <= index ? (ratingArray[i] = '+') : '*';
+      i <= index ? (ratingArray[i] = '+') : '-';
     });
     setRatingState(ratingArray);
   };
@@ -19,15 +19,15 @@ function AttractionsRating() {
       {ratingState.map((el, index) => (
         <div
           onClick={() => getRating(index)}
-          className={`attractions-rating__point_${el === '-' ? 'selected' : 'disabled'}`}
+          className={`attractions-rating__point attractions-rating__point_${
+            el === '-' ? 'selected' : 'disabled'
+          }`}
           key={`${index}_${el}`}
           style={
             el === '-'
               ? { backgroundImage: `url(${starDesabled})` }
               : { backgroundImage: `url(${starSelected})` }
-          }>
-          {el}
-        </div>
+          }></div>
       ))}
     </div>
   );
