@@ -11,21 +11,22 @@ countryRouter.get("/", async (ctx, next) => {
   await next();
 });
 
-countryRouter.get("/:countryID", async (ctx, next) => {
-  const countryID = ctx.params.countryID;
+countryRouter.get("/:ISOCode", async (ctx, next) => {
+  const ISOCode = ctx.params.ISOCode;
   const countries = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../countries.json"), "utf-8"));
-  const country = countries.find((country) => country.id === countryID);
+  const country = countries.find((country) => country.ISOCode === ISOCode);
   if (country) {
     const attractions = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../attractions.json"), "utf-8")).filter(
-      (attraction) => attraction.countryId === countryID
+      (attraction) => attraction.countryISO === ISOCode
     );
     const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../users.json"), "utf-8"));
     country.attractions = attractions.map((attraction) => {
-      delete attraction.countryId;
+      delete attraction.countryISO;
+      console.dir(attraction);
       if (attraction.ratings) {
         attraction.raitings = attraction.ratings.map((rating) => {
-          rating.user = users.find((user) => user.userId === rating.userId);
-          delete rating.userId;
+          rating.user = users.find((user) => user.login === rating.userLogin);
+          delete rating.userLogin;
           return rating;
         });
       }
