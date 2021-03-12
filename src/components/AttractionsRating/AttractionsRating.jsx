@@ -5,31 +5,32 @@ import starSelected from '../../assets/img/star-selected.png';
 import starDesabled from '../../assets/img/star.png';
 
 function AttractionsRating() {
-  const [ratingState, setRatingState] = React.useState(['-', '-', '-', '-', '-']);
-  const ratingArray = ['-', '-', '-', '-', '-'];
+  const [rating, setRating] = React.useState(0);
+  const rateArr = Array(5).fill(null);
 
   const getRating = (index) => {
-    ratingArray.map((el, i) => {
-      i <= index ? (ratingArray[i] = '+') : '-';
-    });
-    setRatingState(ratingArray);
+    setRating(index + 1);
   };
   return (
-    <div className={`attractions-rating`}>
-      {ratingState.map((el, index) => (
-        <div
-          onClick={() => getRating(index)}
-          className={`attractions-rating__point attractions-rating__point_${
-            el === '-' ? 'selected' : 'disabled'
-          }`}
-          key={`${index}_${el}`}
-          style={
-            el === '-'
-              ? { backgroundImage: `url(${starDesabled})` }
-              : { backgroundImage: `url(${starSelected})` }
-          }></div>
-      ))}
-    </div>
+    <>
+      <div className={`attractions-rating`}>
+        {rateArr.map((el, index) => (
+          <div
+            className={`attractions-rating__point attractions-rating__point_${
+                index >= rating ? 'disabled' : 'selected'
+            }`}
+            onClick={() => getRating(index)}
+            style={
+              index >= rating
+                ? { backgroundImage: `url(${starDesabled})` }
+                : { backgroundImage: `url(${starSelected})` }
+            }
+            key={index}>
+            {el}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 

@@ -11,6 +11,7 @@ export default function Country() {
       <Header />
       <h2>Country {countryName}</h2>
       <Footer />
+      
     </>
   );
 }
