@@ -1,0 +1,223 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Trevell app",
+    "version": "1.0.0-oas3"
+  },
+  "paths": {
+    "/countries": {
+      "get": {
+        "tags": ["all users"],
+        "responses": {
+          "200": {
+            "description": "list of countries",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SimpleCountry"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/{countryId}": {
+      "get": {
+        "tags": ["all users"],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "path",
+            "description": "country id to detail",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "country and attractions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplexCountry"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signup": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SimpleCountry": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "vidoUrl": {
+            "type": "string",
+            "example": "www.vido.com"
+          },
+          "ISOCode": {
+            "type": "string",
+            "example": "BY"
+          },
+          "capital": {
+            "$ref": "#/components/schemas/Capital"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "ComplexCountry": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SimpleCountry"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "attractions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Attraction"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Capital": {
+        "type": "object",
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "name": {
+            "type": "string",
+            "example": "Minsk"
+          }
+        }
+      },
+      "Attraction": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "example": "OMON"
+          },
+          "description": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "ratings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attraction_ratings"
+            }
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Vasya"
+          },
+          "avatar": {
+            "type": "string"
+          }
+        }
+      },
+      "Attraction_ratings": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "number"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      }
+    }
+  }
+}
