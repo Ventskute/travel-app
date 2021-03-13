@@ -1,9 +1,10 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
 import data from '../../components/Map/blr.json';
+import RateWidget from '../../components/RateWidget/RateWidget';
 
 export default function Country() {
   let { countryName } = useParams();
