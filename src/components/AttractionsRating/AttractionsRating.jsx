@@ -13,23 +13,23 @@ function AttractionsRating() {
   };
 
   return (
-      <div className={`attractions-rating`}>
-        {rateArr.map((el, index) => (
-          <div
-            className={`attractions-rating__point attractions-rating__point_${
-              index >= rating ? 'disabled' : 'selected'
-            }`}
-            onClick={() => getRating(index)}
-            style={
-              index >= rating
-                ? { backgroundImage: `url(${starDesabled})` }
-                : { backgroundImage: `url(${starSelected})` }
-            }
-            key={index}>
-            {el}
-          </div>
-        ))}
-      </div>
+    <div className={`attractions-rating`}>
+      {rateArr.map((el, index) => (
+        <div
+          className={`attractions-rating__point attractions-rating__point_${
+            index >= rating ? 'disabled' : 'selected'
+          }`}
+          onClick={() => getRating(index)}
+          style={
+            index >= rating
+              ? { backgroundImage: `url(${starDesabled})` }
+              : { backgroundImage: `url(${starSelected})` }
+          }
+          key={index}>
+          {el}
+        </div>
+      ))}
+    </div>
   );
 }
 
