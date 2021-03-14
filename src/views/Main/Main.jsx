@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import RateWidget from '../../components/RateWidget/RateWidget'
 
-import "./Main.scss";
+import './Main.scss';
 
 export default function Main() {
   return (
