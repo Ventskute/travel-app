@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
 import data from '../../components/Map/blr.json';
-import RateWidget from '../../components/RateWidget/RateWidget';
+import GeneralWidgetRate from '../../components/GeneralWidgetRate/GeneralWidgetRate';
 
 export default function Country() {
   let { countryName } = useParams();
@@ -12,6 +12,7 @@ export default function Country() {
   return (
     <>
       <Header />
+      <GeneralWidgetRate />
       <h2>Country {countryName}</h2>
       <Map data={data} />
       <Footer />

@@ -130,6 +130,10 @@
           },
           "description": {
             "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "example": "BYN"
           }
         }
       },
