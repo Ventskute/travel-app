@@ -12,7 +12,6 @@ export default function Country() {
   return (
     <>
       <Header />
-      <GeneralWidgetRate />
       <h2>Country {countryName}</h2>
       <Map data={data} />
       <Footer />
