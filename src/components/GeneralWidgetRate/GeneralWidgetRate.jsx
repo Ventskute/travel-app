@@ -12,14 +12,10 @@ function GeneralWidgetRate() {
       .then((data) => setstate(data));
   }, []);
 
-  return state ? (
-    <div>
-      {currenciesToConvert.map((el) => (
-        <WidgetRate data={state} toConvert={el} />
-      ))}
+  return (
+    <div> 
+      {state && currenciesToConvert.map((el) => <WidgetRate data={state} toConvert={el} />)}
     </div>
-  ) : (
-    <div>loading...</div>
   );
 }
 
