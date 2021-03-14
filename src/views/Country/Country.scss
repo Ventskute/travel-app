@@ -1,0 +1,29 @@
+.country {
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  justify-content: center;
+}
+
+.country-promo {
+  background-color: #f6f6f6;
+}
+
+.country-promo__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 85px 115px;
+  margin-bottom: 20px;
+}
+
+.country-promo__card {
+  width: 371px;
+}
+
+.country-promo__widgets {
+  width: auto;
+  background-color: rgb(0, 183, 255);
+}
