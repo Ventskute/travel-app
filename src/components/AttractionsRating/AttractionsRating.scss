@@ -1,0 +1,14 @@
+.attractions-rating__point {
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+
+.attractions-rating__point_selected {
+  background-image: url('../../assets/img/star-selected.png');
+}
+
+.attractions-rating__point_disabled {
+  background-image: url('../../assets/img/star.png');
+}
