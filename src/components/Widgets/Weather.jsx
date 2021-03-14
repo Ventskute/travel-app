@@ -16,16 +16,18 @@ export default function Weather({ cityName = "Minsk", lang = "en" }) {
 
   return (
     <>
-      <div className="city" contentEditable="true">
-        {cityName}
-      </div>
-      <i className="weather-icon owf"></i>
+      <div className="city">{cityName}</div>
       {data ? (
         <>
+          <i
+            className={`weather-icon owf owf-${data.weather[0].id} owf-3x`}
+          ></i>
           <div className="temperature">{data.main.temp.toFixed(0)}°C</div>
           <div className="weather-description">
             {data.weather[0].description}
           </div>
+          <div class="speed-wind"> {data.wind.speed} m/s</div>
+          <div class="air-humidity">{data.main.humidity} % </div>
         </>
       ) : (
         ""
