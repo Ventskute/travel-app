@@ -27,9 +27,11 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpg|svg|ttf|eot|woff|woff2|gif|mp3|wav|ico|cur|ani|mp4)$/,
-        use: ["file-loader?name=assets/[name].[ext]"],
-      },
+        test: /\.(png|jpeg|jpg|svg|ttf|eot|woff|woff2|gif|mp3|wav|ico|cur|ani|mp4)$/,
+        use: [
+            'file-loader?name=assets/[name].[ext]',
+        ],
+      }
     ],
   },
   resolve: {

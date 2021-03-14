@@ -4,17 +4,31 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Map from '../../components/Map/Map';
 import data from '../../components/Map/blr.json';
+import './Country.scss'
+import Swiper from '../../components/Swiper/Swiper';
+import CountryPromo from '../../components/CountryPromo/CountryPromo';
 
-export default function Country() {
+function Country() {
   let { countryName } = useParams();
 
   return (
-    <>
+    <div className="country">
       <Header />
       <h2>Country {countryName}</h2>
-      <Map data={data} />
+      <div className="country">
+        <section className="country-promo">
+          <CountryPromo />
+        </section>
+        <section className="country-slider">
+          <div className="wrapper country-slider__wrapper">
+            <Swiper />
+          </div>
+        </section>
+        <Map data={data} />
+      </div>
       <Footer />
-      
-    </>
+    </div>
   );
 }
+
+export default Country;
