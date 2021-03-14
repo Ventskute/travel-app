@@ -1,7 +1,7 @@
 import actions from "./actions"
 
 const initialState = {
-  locale: 'en',
+  locale: 'en_US',
   dict: {}
 }
 
