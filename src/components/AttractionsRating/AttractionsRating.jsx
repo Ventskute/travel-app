@@ -17,9 +17,7 @@ function AttractionsRating() {
             index >= rating ? 'disabled' : 'selected'
           }`}
           onClick={() => getRating(index)}
-          key={index}>
-          {el}
-        </div>
+          key={index}></div>
       ))}
     </div>
   );
