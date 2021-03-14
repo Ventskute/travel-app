@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import actions from "../../utils/actions";
 
 import './Main.scss';
 
 export default function Main() {
-  const { locale } = useSelector(state => state)
+  const { locale, dict } = useSelector(state => state)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Main() {
         <div className="container">
           <ul>
             <li>
-              <Link to="/Belarus">Belarus</Link>
+              <Link to="/Belarus">{dict.BELARUS}</Link>
             </li>
             <li>
               <Link to="/Japan">Japan</Link>
