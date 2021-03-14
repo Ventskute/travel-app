@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
 import Swiper from '../../components/Swiper/Swiper';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
+import Weather from "../../components/Widgets/Weather";
 
 import data from '../../components/Map/blr.json';
 
@@ -17,17 +18,16 @@ function Country() {
     <div className="country">
       <Header />
       <h2>Country {countryName}</h2>
-      <div className="country">
-        <section className="country-promo">
-          <CountryPromo />
-        </section>
-        <section className="country-slider">
-          <div className="wrapper country-slider__wrapper">
-            <Swiper />
-          </div>
-        </section>
-        <Map data={data} />
-      </div>
+      <Weather />
+      <section className="country-promo">
+        <CountryPromo />
+      </section>
+      <section className="country-slider">
+        <div className="wrapper country-slider__wrapper">
+          <Swiper />
+        </div>
+      </section>
+      <Map data={data} />
       <Footer />
     </div>
   );
