@@ -24,6 +24,7 @@ export default function Main() {
             </li>
           </ul>
         </div>
+        
       </main>
       <Footer />
     </>
