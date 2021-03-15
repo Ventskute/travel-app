@@ -8,7 +8,8 @@ const authRouter = new Router();
 const pathToUsers = path.resolve(__dirname, "../../data/users.json");
 
 authRouter.post("/signup", koaBody({ multipart: true }), async (ctx, next) => {
-  const { login, password, name } = ctx.request.body;
+  let { login, password, name } = ctx.request.body;
+  login = login.toLowerCase();
   const users = JSON.parse(fs.readFileSync(pathToUsers));
 
   if (users.every((user) => user.login !== login)) {
@@ -31,7 +32,8 @@ authRouter.post("/signup", koaBody({ multipart: true }), async (ctx, next) => {
 });
 
 authRouter.post("/signin", koaBody({ multipart: true }), async (ctx, next) => {
-  const { login, password } = ctx.request.body;
+  let { login, password } = ctx.request.body;
+  login = login.toLowerCase();
   const users = JSON.parse(fs.readFileSync(pathToUsers));
   const user = users.find((user) => user.login === login);
   ctx.status = user?.password === password ? 200 : 403;
