@@ -12,7 +12,7 @@ import './Country.scss';
 
 function Country() {
   const [countryState, setCountryState] = React.useState(null);
-  const backEndPath = 'localhost:3000'
+  const backEndPath = 'localhost:3000';
   let { countryName } = useParams();
   console.log(countryState);
   React.useEffect(() => {
@@ -26,18 +26,19 @@ function Country() {
       <Header />
       <h2>Country {countryName}</h2>
       {countryState && (
-        <section className="country-promo">
-          <CountryPromo countryState={countryState} />
-        </section>
+        <React.Fragment>
+          <section className="country-promo">
+            <CountryPromo countryState={countryState} />
+          </section>
+
+          <section className="country-slider">
+            <div className="wrapper country-slider__wrapper">
+              <Swiper countryState={countryState} />
+            </div>
+          </section>
+          <Map data={data} />
+        </React.Fragment>
       )}
-      <section className="country-slider">
-        {countryState && (
-          <div className="wrapper country-slider__wrapper">
-            <Swiper countryState={countryState} />
-          </div>
-        )}
-      </section>
-      <Map data={data} />
       <Footer />
     </div>
   );
