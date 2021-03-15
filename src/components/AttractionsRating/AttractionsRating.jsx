@@ -51,6 +51,11 @@ function AttractionsRating({ currentImage, countryState }) {
   const getRating = (index) => {
     setRating(index + 1);
     // сдесь будет put рейтинга на бэк
+    ratings.map((el) => {
+      if (el.user.name === currUser) {
+        el.score = index + 1;
+      }
+    });
   };
 
   return (
