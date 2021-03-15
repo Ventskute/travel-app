@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
-import Swiper from '../../components/Swiper/Swiper';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
+import GeneralAttractions from '../../components/GeneralAttractions/GeneralAttractions'
 
 import data from '../../components/Map/blr.json';
 
@@ -30,12 +30,8 @@ function Country() {
           <section className="country-promo">
             <CountryPromo countryState={countryState} />
           </section>
-
-          <section className="country-slider">
-            <div className="wrapper country-slider__wrapper">
-              <Swiper countryState={countryState} />
-            </div>
-          </section>
+          <GeneralAttractions countryState={countryState}/>
+         
           <Map data={data} />
         </React.Fragment>
       )}
