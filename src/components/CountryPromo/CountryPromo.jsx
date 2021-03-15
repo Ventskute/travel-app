@@ -15,7 +15,7 @@ function CountryPromo({ countryState }) {
           {descriprion}
         </p>
       </div>
-      <Widgets />
+      <Widgets countryState={countryState}/>
     </div>
   );
 }

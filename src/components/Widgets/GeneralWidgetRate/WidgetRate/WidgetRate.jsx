@@ -1,9 +1,8 @@
 import React from 'react';
 import './WidgetRate.scss';
 
-function RateWidget({ data, toConvert }) {
+function RateWidget({ currency, toConvert }) {
   const [rate, setRate] = React.useState('');
-  const { currency } = data;
 
   React.useEffect(() => {
     fetch(
