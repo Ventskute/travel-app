@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
 import GeneralAttractions from '../../components/GeneralAttractions/GeneralAttractions'
+import YouTubeVideo from '../../components/Video/YouTubeVideo'
 
 import data from '../../components/Map/blr.json';
 
@@ -33,6 +34,7 @@ function Country() {
           <GeneralAttractions countryState={countryState}/>
          
           <Map data={data} />
+          <YouTubeVideo />
         </React.Fragment>
       )}
       <Footer />
