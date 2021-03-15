@@ -1,10 +1,11 @@
 import React from 'react';
-import Widgets  from '../Widgets/Widgets';
+import Widgets from '../Widgets/Widgets';
 import layoutCountry from '../../assets/img/layout-country.jpeg';
 import './CountryPromo.scss';
 
-function CountryPromo() {
-  return (
+function CountryPromo({ countryState }) {
+  {descriprion, name} = countryState
+  return countryState && (
     <div className="wrapper country-promo__wrapper">
       <div className="country-promo__card">
         <img className="card__image" src={layoutCountry} alt="layout-country"></img>
