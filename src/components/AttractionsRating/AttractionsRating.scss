@@ -1,6 +1,7 @@
-.attractions-rating__point {
+.attractions-rating__my-rating_point {
   display: inline-block;
   background-repeat: no-repeat;
+  background-position: center;
   width: 25px;
   height: 25px;
 }
@@ -11,4 +12,16 @@
 
 .attractions-rating__point_disabled {
   background-image: url('../../assets/img/star.png');
+}
+
+.attractions-rating{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attractions-rating__my-rating{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

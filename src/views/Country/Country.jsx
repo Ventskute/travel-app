@@ -4,8 +4,9 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
-import GeneralAttractions from '../../components/GeneralAttractions/GeneralAttractions'
-import YouTubeVideo from '../../components/Video/YouTubeVideo'
+import GeneralAttractions from '../../components/GeneralAttractions/GeneralAttractions';
+import YouTubeVideo from '../../components/Video/YouTubeVideo';
+import img from '../../assets/img/player-background.jpeg';
 
 import data from '../../components/Map/blr.json';
 
@@ -31,10 +32,18 @@ function Country() {
           <section className="country-promo">
             <CountryPromo countryState={countryState} />
           </section>
-          <GeneralAttractions countryState={countryState}/>
-         
-          <Map data={data} />
-          <YouTubeVideo />
+          <section className="attractions">
+            <GeneralAttractions countryState={countryState} />
+          </section>
+          <section className="map-full-screen">
+            <Map data={data} />
+          </section>
+          <section className="video">
+            <div className="video-wrapper wrapper" style={{ backgroundImage: `url(${img})` }}>
+              <h2 className="video__title">See Dubai from the sky</h2>
+              <YouTubeVideo />
+            </div>
+          </section>
         </React.Fragment>
       )}
       <Footer />

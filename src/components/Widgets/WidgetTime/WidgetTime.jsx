@@ -25,7 +25,12 @@ function WidgetTime({ timeZoneName, lang = 'en-US' }) {
     return date.toLocaleString(lang, dateOptions);
   }
 
-  return <div className="widgets__current-time">{currentDate}</div>;
+  return (
+    <div className="widget widgets__current-time">
+      <h3 className="current-time__title">Current date/time</h3>
+      <h4 className="current-time__value">{currentDate}</h4>
+    </div>
+  );
 }
 
 export default WidgetTime;

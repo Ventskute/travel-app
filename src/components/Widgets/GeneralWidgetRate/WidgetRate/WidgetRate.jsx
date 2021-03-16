@@ -13,10 +13,10 @@ function RateWidget({ currency, toConvert }) {
   }, []);
 
   return (
-    <div className="widget-rate">
-      <span>{`${toConvert} to ${currency} currency `}</span>
-      <span>{rate}</span>
-    </div>
+    <h4 className="rate__content">
+      {/* <span>{`${toConvert} to ${currency} currency `}</span>
+      <span>{rate}</span> */}
+    </h4>
   );
 }
 

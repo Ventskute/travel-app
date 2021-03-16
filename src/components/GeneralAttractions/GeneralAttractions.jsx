@@ -1,18 +1,23 @@
 import React from 'react';
 import AttractionsRating from '../AttractionsRating/AttractionsRating';
 import Swiper from '../Swiper/Swiper';
+import './GeneralAttractions.scss';
 
 function GeneralAttractions({ countryState }) {
-    const [currentImage, setCurrentImage] = React.useState(0);
+  const [currentImage, setCurrentImage] = React.useState(0);
   return (
-    <div className="attractions">
-      <AttractionsRating currentImage={currentImage} countryState={countryState} />
-      <section className="country-slider">
+    <>
+      <div className="attractions-info">
+        <div className="wrapper attractions-info__wrapper">
+          <AttractionsRating currentImage={currentImage} countryState={countryState} />
+        </div>
+      </div>
+      <div className="country-slider">
         <div className="wrapper country-slider__wrapper">
           <Swiper countryState={countryState} setCurrentImage={setCurrentImage} />
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,7 +1,10 @@
 .map {
 	height: 400px;
-
+	
 	.ymaps-2-1-78-ground-pane {
 		filter: hue-rotate(135deg);
 	}
+}
+.map-wrapper{
+	padding: 0px 0px 0px;
 }

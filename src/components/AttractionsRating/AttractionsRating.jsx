@@ -37,6 +37,7 @@ function AttractionsRating({ currentImage, countryState }) {
   const [rating, setRating] = React.useState(0);
   const [totalRating, setTotalRating] = React.useState(attractions.rating || 0);
   const rateArr = Array(5).fill(null);
+  const [showAll, setShowAll] = React.useState(false);
 
   React.useEffect(() => {
     // проверка объекта проголосовавших на соответствие текущему пользователю и взятие его рейтинга, будет брать рейтинг после каждой смены картинки
@@ -59,21 +60,31 @@ function AttractionsRating({ currentImage, countryState }) {
   };
 
   return (
-    <div className="ratings">
-      <AllUsersRatings ratings={ratings} />
-      <h3 className="attraction-name">{attractions[currentImage].name}</h3>
-      <div className="description">{attractions[currentImage].description}</div>
+    <div className="info">
+      <h3 className="info__title">{attractions[currentImage].name}</h3>
+      <div className="info__description">{attractions[currentImage].description}</div>
+
       <div className={`attractions-rating`}>
-        {rateArr.map((el, index) => (
-          <div
-            className={`attractions-rating__point attractions-rating__point_${
-              index >= rating ? 'disabled' : 'selected'
-            }`}
-            onClick={() => getRating(index)}
-            key={index}></div>
-        ))}
-        <div>{`My rating : ${rating}`}</div>
-        <div>{`Total: ${totalRating}`}</div>
+        <button
+          className={`button button__show-all-ratings`}
+          onClick={() => (!showAll ? setShowAll(true) : setShowAll(false))}>
+          {!showAll ? `show all ratings` : `close all ratings`}
+        </button>
+        {showAll && <AllUsersRatings ratings={ratings} />}
+        <div className="attractions-rating__my-rating">
+          <div className="rate-block">
+            {rateArr.map((el, index) => (
+              <div
+                className={`attractions-rating__my-rating_point attractions-rating__point_${
+                  index >= rating ? 'disabled' : 'selected'
+                }`}
+                onClick={() => getRating(index)}
+                key={index}></div>
+            ))}
+          </div>
+          <div>{`My rating : ${rating}`}</div>
+          <div>{`Total: ${totalRating}`}</div>
+        </div>
       </div>
     </div>
   );

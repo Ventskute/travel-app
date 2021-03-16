@@ -8,6 +8,7 @@ export default function Map(props) {
   const { data } = props;
 
   return (
+    <div className="wrapper map-wrapper">
     <YMaps
       query={{
         lang: 'en_US',
@@ -47,5 +48,6 @@ export default function Map(props) {
         <TypeSelector />
       </YMap>
     </YMaps>
+    </div>
   )
 };

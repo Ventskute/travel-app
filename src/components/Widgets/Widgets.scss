@@ -1,0 +1,13 @@
+.country-promo__widgets {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.widget {
+  margin-bottom: 15px;
+  padding: 20px;
+  border: solid 2px black;
+  border-radius: 8px;
+}
