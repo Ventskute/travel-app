@@ -1,0 +1,34 @@
+.container_footer {
+  display: flex;
+  flex-direction: row;
+}
+.rss {
+  display: block;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  width: 86px;
+  height: 32px;
+  background-image: url(/src/assets/logo/rs_school_js.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-right: 111px;
+}
+.rss-year {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 21px;
+  letter-spacing: -2px;
+  color: #0f0f0f;
+  line-height: 0.9;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.rss:hover .rss-year {
+  right: -5px;
+  letter-spacing: 0;
+}
+.container_footer p {
+  padding: 0 7px 0 81px;
+}
