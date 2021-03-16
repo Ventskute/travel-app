@@ -75,6 +75,26 @@
         }
       }
     },
+    "/countries/countryoftheday": {
+      "get": {
+        "tags": ["all users"],
+        "responses": {
+          "200": {
+            "description": "country of the day",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SimpleCountry"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/countries/{countryISO}": {
       "get": {
         "tags": ["all users"],
