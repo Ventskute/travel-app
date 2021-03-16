@@ -50,10 +50,10 @@ countryRouter.get("/countryoftheday", async (ctx, next) => {
   await next();
 });
 countryRouter.post("/:ISOCode/:attractionId", koaBody(), async (ctx, next) => {
-  const params = ctx.request.body;
+  const params = ctx.query;
+  console.dir(param);
   const { attractionId, ISOCode } = ctx.params;
   const attractions = JSON.parse(fs.readFileSync(pathToAttractions), "utf-8");
-  console.log(attractions);
   const attraction = attractions.find((attraction) => attraction.id === attractionId);
   attraction.ratings.push(params);
   attraction.rating = Math.floor(

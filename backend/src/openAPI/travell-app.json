@@ -150,25 +150,28 @@
             "schema": {
               "type": "string"
             }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "score": {
-                    "type": "number"
-                  },
-                  "userLogin": {
-                    "type": "string"
-                  }
-                }
-              }
+          },
+          {
+            "name": "login",
+            "in": "query",
+            "description": "user login",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "score",
+            "in": "query",
+            "description": "attraction score",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "number"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "OK"

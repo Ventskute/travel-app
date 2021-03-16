@@ -14,7 +14,7 @@ authRouter.post("/signup", koaBody({ multipart: true }), async (ctx, next) => {
 
   if (users.every((user) => user.login !== login)) {
     let pathToAvatar = null;
-    if (ctx.request.files?.avatar?.type.includes("image")) {
+    if (ctx.request.files && ctx.request.files.avatar && ctx.request.files.avatar.type.includes("image")) {
       pathToAvatar = `statics/users/${login}${ctx.request.files.avatar.name.replace(/^.+[.]/, ".")}`;
       const avatarStrR = fs.createReadStream(ctx.request.files.avatar.path);
       const avatarStrW = fs.createWriteStream(`data/${pathToAvatar}`);
@@ -36,7 +36,7 @@ authRouter.post("/signin", koaBody({ multipart: true }), async (ctx, next) => {
   login = login.toLowerCase();
   const users = JSON.parse(fs.readFileSync(pathToUsers));
   const user = users.find((user) => user.login === login);
-  ctx.status = user?.password === password ? 200 : 403;
+  ctx.status = user && user.password === password ? 200 : 403;
   await next();
 });
 
