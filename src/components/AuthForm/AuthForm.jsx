@@ -1,7 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+
 import "./AuthForm.scss";
-const AuthForm = ({ isSignup, url = "http://localhost:3000/", setUser }) => {
-  const [imgUrl, setImgUrl] = useState(null);
+
+const AuthForm = ({
+  isSignup,
+  url = "http://localhost:3000/",
+  setUser = (user) => console.log("you should provide setUser"),
+}) => {
+  const [imgUrl, setImgUrl] = useState(
+    "https://www.pinclipart.com/picdir/big/15-154296_gender-neutral-user-account-icon-png-clipart.png"
+  );
   const [loginValue, setLoginValue] = useState("");
   const [loginPlaceHolder, setLoginPlaceHolder] = useState("login");
   const form = useRef(null);
@@ -16,7 +24,9 @@ const AuthForm = ({ isSignup, url = "http://localhost:3000/", setUser }) => {
     fetch(`${url}${isSignup ? "signup" : "signin"}`, { method: "POST", body: data }).then((res) => {
       if (res.status === 403) {
         setLoginValue("");
-        setLoginPlaceHolder("this login already taken");
+        isSignup
+          ? setLoginPlaceHolder("this login already taken")
+          : setLoginPlaceHolder("login or password is incorrect");
       } else if (res.status === 200) {
         setUser({ login: loginValue });
       }
@@ -25,9 +35,9 @@ const AuthForm = ({ isSignup, url = "http://localhost:3000/", setUser }) => {
 
   return (
     <div className="auth-form-container">
-      <form ref={form} onSubmit={submit}>
+      <h3>{isSignup ? "Signup" : "Signin"} form</h3>
+      <form className="auth-form" ref={form} onSubmit={submit}>
         <div className="auth-form_input">
-          <label htmlFor="login">login</label>
           <input
             name="login"
             type="text"
@@ -41,29 +51,29 @@ const AuthForm = ({ isSignup, url = "http://localhost:3000/", setUser }) => {
         </div>
         {isSignup && (
           <div className="auth-form_input">
-            <label htmlFor="name">name</label>
-            <input name="name" type="text" required />
+            <input name="name" type="text" required placeholder="name" />
           </div>
         )}
         <div className="auth-form_input">
-          <label htmlFor="password">password</label>
-          <input type="password" name="password" required />
+          <input type="password" name="password" required placeholder="password" />
         </div>
         {isSignup && (
-          <div className="auth-form_input input-imgfile">
-            {imgUrl && <img src={imgUrl} className="preImg" alt="avatar" />}
-            <label htmlFor="avatar">avatar</label>
-            <input
-              type="file"
-              accept="image/*"
-              name="avatar"
-              onChange={(e) => {
-                reader.readAsDataURL(e.target.files[0]);
-              }}
-            />
+          <div className="auth-form_input input-imgFile">
+            <label className="add-avatar-btn">
+              <img src={imgUrl} className="preImg" alt="avatar" />
+              <input
+                type="file"
+                accept="image/*"
+                name="avatar"
+                onChange={(e) => {
+                  reader.readAsDataURL(e.target.files[0]);
+                }}
+              />
+              add avatar
+            </label>
           </div>
         )}
-        <input type="submit" className="auth-form_submit button" />
+        <input type="submit" className="auth-form_submit button" value="submit" />
       </form>
     </div>
   );
