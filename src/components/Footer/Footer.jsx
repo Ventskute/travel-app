@@ -1,8 +1,7 @@
 import React from "react";
-import { Img } from "react-image";
 import GitHub from "../../assets/logo/GitHub.png";
+
 import "./Footer.scss";
-const GitHubLogo = () => <Img src={GitHub} width="18px" height="18px" />;
 
 export default function Footer() {
   return (
@@ -12,26 +11,26 @@ export default function Footer() {
           <p>
             Viktoryia Ventskute
             <a href="https://github.com/Ventskute">
-              <GitHubLogo />
+              <img className="github_logo" src={GitHub} />
             </a>
           </p>
 
           <p>
             Andrew Murashko
             <a href="https://github.com/Andrewmurashko">
-              <GitHubLogo />
+              <img className="github_logo" src={GitHub} />
             </a>{" "}
           </p>
           <p>
             Aleksei
             <a href="https://github.com/AlekseiBY">
-              <GitHubLogo />
+              <img className="github_logo" src={GitHub} />
             </a>{" "}
           </p>
           <p>
             Tatsiana Slapik
             <a href="https://github.com/TatsianaSlapik">
-              <GitHubLogo />
+              <img className="github_logo" src={GitHub} />
             </a>
           </p>
           <p>

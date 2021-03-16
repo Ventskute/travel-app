@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: row;
 }
+
+.github_logo {
+  width: 18px;
+  height: 18px;
+}
+
 .rss {
   display: block;
   position: relative;
@@ -14,6 +20,7 @@
   background-position: left center;
   padding-right: 111px;
 }
+
 .rss-year {
   position: absolute;
   bottom: 0;
@@ -25,10 +32,12 @@
   font-weight: bold;
   transition: 0.3s;
 }
+
 .rss:hover .rss-year {
   right: -5px;
   letter-spacing: 0;
 }
+
 .container_footer p {
   padding: 0 7px 0 81px;
 }

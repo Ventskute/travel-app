@@ -26,7 +26,6 @@
     "koa2-swagger-ui": "^5.0.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-image": "^4.0.3",
     "react-image-gallery": "^1.0.9",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
