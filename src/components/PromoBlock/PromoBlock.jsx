@@ -18,14 +18,16 @@ export default function PromoBlock() {
 
   return (
     <>
-      <div className="promo">
-        <div className="title">
-          <p>
-            Country of the day:
-            {country ? <Link to={`/${country.name}`}>{country.name}</Link> : ""}
-          </p>
+      <Link className="promo-link" to={`/${country && country.name}`}>
+        <div className="promo">
+          <div className="container">
+            <h2 className="title">
+                {"Country of the day — "}
+                {country && country.name}
+            </h2>
+          </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 }

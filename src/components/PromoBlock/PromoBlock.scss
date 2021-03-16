@@ -1,26 +1,31 @@
-/*@mixin center() {
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-}*/
 .promo {
-  // @include center();
-}
-.title {
-  font-weight: 900;
-  color: transparent;
-  font-size: 60px;
-  background: url(/src/assets/img/sky.jpg) repeat;
-  background-position: 40% 50%;
-  -webkit-background-clip: text;
+  background: url("../../assets/img/belarus_promo.jpg");
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  margin: 20px 0;
+  padding: 60px 0;
 
-  position: relative;
-  text-align: center;
-  line-height: 90px;
-  letter-spacing: -8px;
+  &-link {
+    text-decoration: none;
+  }
 }
-.promo a {
-  color: transparent;
+
+.title {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  font-size: 60px;
+  animation: spacing 1s ease-out forwards;
+}
+
+@keyframes spacing {
+  0% {
+    opacity: 0;
+    letter-spacing: -30px;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: -4px;
+  }
 }
