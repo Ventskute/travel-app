@@ -57,7 +57,7 @@
     },
     "/countries": {
       "get": {
-        "tags": ["all users"],
+        "tags": ["countries"],
         "responses": {
           "200": {
             "description": "list of countries",
@@ -97,7 +97,7 @@
     },
     "/countries/{countryISO}": {
       "get": {
-        "tags": ["all users"],
+        "tags": ["countries"],
         "parameters": [
           {
             "name": "countryISO",
@@ -125,7 +125,61 @@
         }
       }
     },
-    "/login": {
+    "/countries/{countryISO}/{attractionId}": {
+      "post": {
+        "tags": ["attractions"],
+        "parameters": [
+          {
+            "name": "countryISO",
+            "in": "path",
+            "description": "country ISO to detail",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "attractionId",
+            "in": "path",
+            "description": "attraction ID to post",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "login",
+            "in": "query",
+            "description": "user login",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "score",
+            "in": "query",
+            "description": "attraction score",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/signin": {
       "post": {
         "requestBody": {
           "content": {
@@ -138,15 +192,11 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
-                }
-              }
-            }
+            "description": "OK"
           }
+        },
+        "403": {
+          "desctiption": "incorrect login or password"
         }
       }
     },
@@ -163,14 +213,10 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_1"
-                }
-              }
-            }
+            "description": "OK"
+          },
+          "403": {
+            "desctiption": "login already taken"
           }
         }
       }
@@ -309,14 +355,6 @@
           }
         }
       },
-      "inline_response_200": {
-        "type": "object",
-        "properties": {
-          "valid": {
-            "type": "boolean"
-          }
-        }
-      },
       "body_1": {
         "type": "object",
         "properties": {
@@ -326,20 +364,9 @@
           "password": {
             "type": "string"
           },
-          "profileImage": {
+          "avatar": {
             "type": "string",
             "format": "binary"
-          }
-        }
-      },
-      "inline_response_200_1": {
-        "type": "object",
-        "properties": {
-          "valid": {
-            "type": "boolean"
-          },
-          "reason": {
-            "type": "string"
           }
         }
       }
