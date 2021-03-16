@@ -8,7 +8,7 @@ function GeneralAttractions({ countryState }) {
   return (
     <>
       <div className="attractions-info">
-        <div className="wrapper attractions-info__wrapper">
+        <div className="container attractions-info__wrapper">
           <AttractionsRating currentImage={currentImage} countryState={countryState} />
         </div>
       </div>

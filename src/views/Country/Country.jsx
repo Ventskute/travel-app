@@ -39,7 +39,7 @@ function Country() {
             <Map data={data} />
           </section>
           <section className="video">
-            <div className="video-wrapper wrapper" style={{ backgroundImage: `url(${img})` }}>
+            <div className="video-wrapper container" style={{ backgroundImage: `url(${img})` }}>
               <h2 className="video__title">See Dubai from the sky</h2>
               <YouTubeVideo />
             </div>
