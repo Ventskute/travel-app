@@ -29,8 +29,8 @@ export default function Footer() {
         <div className="container">
           <ul>
           {
-            developers.map((el) => (
-              <li>
+            developers.map((el, i) => (
+              <li key={i}>
                 <a href={el.link} target='_blank'>
                   {el.name}
                   <img src={GitHub} alt='GitHub' className='github_logo'/>

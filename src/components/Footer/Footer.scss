@@ -9,6 +9,8 @@ footer {
 
     ul {
       list-style: none;
+      display: flex;
+      flex-wrap: wrap;
 
       li {
         display: inline;
