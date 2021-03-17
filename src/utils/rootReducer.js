@@ -2,7 +2,20 @@ import actions from "./actions";
 
 const getData = (key, initialValue) => {
   const data = localStorage.getItem(key);
-  return data ? JSON.parse(data) : initialValue;
+
+  if (!data) {
+    localStorage.setItem(key, initialValue)
+  }
+
+  let result = data;
+  try {
+    result = JSON.parse(data)
+  }
+  catch {
+    result = data
+  }
+
+  return result ? result : initialValue;
 };
 
 const initialState = {

@@ -22,7 +22,7 @@ const parseCountry = (country, lang) => {
 };
 
 countryRouter.get("/", async (ctx, next) => {
-  const { lang } = ctx.query;
+  const { lang = 'ru_RU' } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   ).map((country) => {
@@ -38,7 +38,7 @@ countryRouter.get("/", async (ctx, next) => {
 
 countryRouter.get("/:ISOCode", async (ctx, next) => {
   const ISOCode = ctx.params.ISOCode;
-  const { lang } = ctx.query;
+  const { lang = 'ru_RU' } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   );
@@ -48,20 +48,29 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
     const attractions = JSON.parse(fs.readFileSync(pathToAttractions), "utf-8").filter(
       (attraction) => attraction.countryISO === ISOCode
     );
+
     const parsedCountry = parseCountry(country, lang);
     parsedCountry.attractions = attractions.map((attraction) => {
-      //
+      const name = attraction.lang[lang].name;
+      const description = attraction.lang[lang].description;
+
       delete attraction.countryISO;
+      delete attraction.lang;
+
+      attraction.name = name;
+      attraction.description = description;
+
       if (attraction.ratings) {
         attraction.ratings = attraction.ratings.map((rating) => {
           rating.user = users.find((user) => user.login === rating.userLogin);
-          delete rating.user.password;
+          rating.user && delete rating.user.password;
           delete rating.userLogin;
           return rating;
         });
       }
       return attraction;
     });
+
     ctx.body = parsedCountry;
   } else {
     ctx.status = 404;
@@ -70,7 +79,7 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 });
 
 countryRouter.get("/countryoftheday", async (ctx, next) => {
-  const { lang } = ctx.query;
+  const { lang = 'ru_RU' } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   );
@@ -84,7 +93,7 @@ countryRouter.get("/countryoftheday", async (ctx, next) => {
 
 countryRouter.post("/:ISOCode/:attractionId", koaBody(), async (ctx, next) => {
   const params = ctx.query;
-  console.dir(param);
+
   const { attractionId, ISOCode } = ctx.params;
   const attractions = JSON.parse(fs.readFileSync(pathToAttractions), "utf-8");
   const attraction = attractions.find((attraction) => attraction.id === attractionId);
