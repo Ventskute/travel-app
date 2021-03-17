@@ -4,7 +4,6 @@ import './CountryPromo.scss';
 import img from '../../assets/img/player-background.jpeg'
 
 function CountryPromo({ countryState }) {
-  console.log(countryState)
   const {name, descriprion, image, capital} = countryState;
 
   return  (

@@ -6,7 +6,6 @@ import './Widgets.scss';
 
 function Widgets({countryState}) {
   const {capital: {timeZoneName}, currency} = countryState
-  console.log(currency)
   return (
     <div className="country-promo__widgets">
       <WidgetTime timeZoneName={timeZoneName} />

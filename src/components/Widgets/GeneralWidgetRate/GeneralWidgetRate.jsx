@@ -10,7 +10,6 @@ function GeneralWidgetRate({ currency }) {
     fetch(`http://${backEndPath}/countries/CAN`)
       .then((res) => res.json())
       .then((data) => setstate(data));
-      console.log(currency)
   }, []);
 
   return (

@@ -45,13 +45,12 @@ function AttractionsRating({ currentImage, countryState }) {
       if (el.user.name === currUser) {
         setRating(el.score);
       }
-      ratings.map((el, index) => console.log(el, index));
     });
   }, [currentImage]);
 
   const getRating = (index) => {
     setRating(index + 1);
-    // сдесь будет put рейтинга на бэк
+    // сдесь будет post рейтинга на бэк
     ratings.map((el) => {
       if (el.user.name === currUser) {
         el.score = index + 1;

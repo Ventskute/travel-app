@@ -14,11 +14,10 @@ export default function Swiper({countryState, setCurrentImage}) {
   React.useEffect(() => {
     setimages(countryState.attractions.map((el,index)=>{
       return {
-        original: img, //el.image,
-        thumbnail: img //el.image
+        original: el.image,
+        thumbnail: el.image
       }
     }))
-    console.log(images)
   }, [])
 
 
