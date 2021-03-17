@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
-export default function Header({children}) {
+export default function Header({ children }) {
   const logo = useRef(null);
 
   useEffect(() => {
