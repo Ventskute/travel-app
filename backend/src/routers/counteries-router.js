@@ -7,15 +7,38 @@ const countryRouter = new Router({ prefix: "/countries" });
 const pathToData = path.resolve(__dirname, "../../data/");
 const pathToAttractions = path.resolve(pathToData, "attractions.json");
 
+const parseCountry = (country, lang) => {
+  const { name, capitalName, description } = country.lang[lang];
+  const capitalCoordinates = country.capitalCoordinates;
+  delete country.capitalCoordinates;
+  delete country.lang;
+  country.name = name;
+  country.capital = {
+    name: capitalName,
+    coordinates: capitalCoordinates,
+  };
+  country.description = description;
+  return country;
+};
+
 countryRouter.get("/", async (ctx, next) => {
-  const str = fs.createReadStream(path.resolve(pathToData, "countries.json"));
+  const { lang } = ctx.query;
+  const countries = JSON.parse(
+    fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
+  ).map((country) => {
+    const parsedCountry = parseCountry(country, lang);
+    delete parsedCountry.description;
+    return parsedCountry;
+  });
+
   ctx.response.set("content-type", "application/json");
-  ctx.body = str;
+  ctx.body = JSON.stringify(countries);
   await next();
 });
 
 countryRouter.get("/:ISOCode", async (ctx, next) => {
   const ISOCode = ctx.params.ISOCode;
+  const { lang } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   );
@@ -25,7 +48,9 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
     const attractions = JSON.parse(fs.readFileSync(pathToAttractions), "utf-8").filter(
       (attraction) => attraction.countryISO === ISOCode
     );
-    country.attractions = attractions.map((attraction) => {
+    const parsedCountry = parseCountry(country, lang);
+    parsedCountry.attractions = attractions.map((attraction) => {
+      //
       delete attraction.countryISO;
       if (attraction.ratings) {
         attraction.ratings = attraction.ratings.map((rating) => {
@@ -37,7 +62,7 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
       }
       return attraction;
     });
-    ctx.body = country;
+    ctx.body = parsedCountry;
   } else {
     ctx.status = 404;
   }
@@ -45,12 +70,13 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 });
 
 countryRouter.get("/countryoftheday", async (ctx, next) => {
+  const { lang } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   );
   const country = countries.find((country) => country.ISOCode === "BY");
   ctx.response.set("content-type", "application/json");
-  ctx.body = country;
+  ctx.body = lang ? parseCountry(country, lang) : parseCountry(country, "ru_RU");
   ctx.status = 200;
   await next();
 });
