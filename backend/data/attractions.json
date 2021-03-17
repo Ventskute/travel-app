@@ -67,11 +67,7 @@
     "countryISO": "CAN",
     "image": "",
     "rating": null,
-    "ratings": [
-      { "score": 3, "userLogin": "vasya322" },
-      { "score": 4, "userLogin": "vasya32" },
-      { "score": 5, "userLogin": "vasya21" }
-    ],
+    "ratings": null,
     "lang": {
       "en_US": {
         "name": "St. Joseph's Oratory",

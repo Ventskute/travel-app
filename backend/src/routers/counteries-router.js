@@ -22,7 +22,7 @@ const parseCountry = (country, lang) => {
 };
 
 countryRouter.get("/", async (ctx, next) => {
-  const { lang = 'ru_RU' } = ctx.query;
+  const { lang = "ru_RU" } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   ).map((country) => {
@@ -38,7 +38,7 @@ countryRouter.get("/", async (ctx, next) => {
 
 countryRouter.get("/:ISOCode", async (ctx, next) => {
   const ISOCode = ctx.params.ISOCode;
-  const { lang = 'ru_RU' } = ctx.query;
+  const { lang = "ru_RU" } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   );
@@ -79,11 +79,11 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 });
 
 countryRouter.get("/countryoftheday", async (ctx, next) => {
-  const { lang = 'ru_RU' } = ctx.query;
+  const { lang = "ru_RU" } = ctx.query;
   const countries = JSON.parse(
     fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
   );
-  const country = countries[new Date().getDate() % countries.length]
+  const country = countries[new Date().getDate() % countries.length];
 
   ctx.response.set("content-type", "application/json");
   ctx.body = lang ? parseCountry(country, lang) : parseCountry(country, "ru_RU");
