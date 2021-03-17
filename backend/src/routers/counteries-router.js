@@ -70,7 +70,6 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
       }
       return attraction;
     });
-
     ctx.body = parsedCountry;
   } else {
     ctx.status = 404;
