@@ -18,7 +18,7 @@ export default function PromoBlock() {
   return (
     <>
       <Link className="promo-link" to={`/${country && country.name}`}>
-        <div className="promo">
+        <div className="promo" style={{backgroundImage: `url(${country && country.promo})`}}>
           <div className="container">
             <h2 className="title">
                 {dict.COUNTRY_OF_THE_DAY}
