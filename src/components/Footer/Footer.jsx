@@ -34,8 +34,8 @@ export default function Footer() {
             </a>
           </p>
           <p>
-            <a class="rss" href="https://rs.school/react/">
-              <span class="rss-year">'21</span>
+            <a className="rss" href="https://rs.school/react/">
+              <span className="rss-year">'21</span>
             </a>
           </p>
         </div>
