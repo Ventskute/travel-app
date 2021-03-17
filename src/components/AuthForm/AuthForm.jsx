@@ -23,7 +23,9 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
   const submit = async (e) => {
     e.preventDefault();
     const data = new FormData(form.current);
-    const resStatus = isSignup ? await signup(data) : await signin(data);
+    const res = isSignup ? await signup(data) : await signin(data);
+    const resStatus = await res.status;
+    const resUser = await res.user;
 
     if (resStatus === 403) {
       setLoginValue("");
@@ -31,7 +33,15 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
         ? setLoginPlaceHolder("this name already taken")
         : setLoginPlaceHolder("name or password is incorrect");
     } else if (resStatus === 200) {
-      setUser({ login: loginValue });
+      if (resUser) {
+        setUser({
+          login: loginValue,
+          avatar: `http://localhost:3000/${resUser.avatar}` });
+      } else {
+        setUser({
+          login: loginValue,
+          avatar: `http://localhost:3000/statics/users/${loginValue.toLowerCase()}${imgUrl.substr(imgUrl.lastIndexOf("."))}` });
+      }
       closeForm();
     }
   };

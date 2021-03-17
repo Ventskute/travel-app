@@ -25,6 +25,25 @@ header {
     right: 0;
     top: calc(50% - 18px);
 
+    .avatar-wrapper {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 10px;
+      margin-top: -5px;
+      overflow: hidden;
+      display: inline-block;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .login-name {
+      display: inline;
+    }
+
     @media screen and (max-width: 1024px) {
       display: flex;
       justify-content: center;

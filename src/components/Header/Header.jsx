@@ -49,9 +49,15 @@ export default function Header({ children }) {
               <button className="login-button" onClick={openSignupForm}>Sign up</button>
               <button className="login-button" onClick={openSigninForm}>Log in</button>
             </>}
-            { user &&
+            { user && <>
+              { user.avatar &&
+                <div className="avatar-wrapper">
+                  <img src={user.avatar}/>
+                </div>
+              }
+              <h3 className="login-name">{user.login}</h3>
               <button className="login-button" onClick={logoutUser}>Log out</button>
-            }
+            </>}
           </div>
 
           {children && children}
