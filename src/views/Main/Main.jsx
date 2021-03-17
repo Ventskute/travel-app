@@ -7,7 +7,7 @@ import Header from "../../components/Header/Header";
 import PromoBlock from "../../components/PromoBlock/PromoBlock";
 import Search from "../../components/Search/Search";
 import actions from "../../utils/actions";
-import { getLocaleTxt } from "../../utils/api";
+import { getCountries, getLocaleTxt } from "../../utils/api";
 import image from '../../assets/img/belarus_promo.jpg';
 
 import "./Main.scss";
@@ -16,7 +16,9 @@ import Card from "../../components/Card/Card";
 export default function Main() {
   const { locale, dict, user } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   const [authForm, setAuthForm] = useState({ isFormOpen: false, isSignup: true });
+  const [countries, setCountries] = useState([]);
 
   const setUser = (user) => {
     dispatch({ type: actions.SET_USER, user: user });
@@ -37,6 +39,7 @@ export default function Main() {
 
   useEffect(() => {
     getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
+    getCountries(locale).then((res) => setCountries(res));
   }, []);
 
   return (
@@ -51,14 +54,11 @@ export default function Main() {
       <main className="main">
         <h2 className='countries'>Countries</h2>
         <div className="container cards-container">
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
-          <Card name='Belarus' capital='Minsk' image={image}/>
+          {
+            countries.map((el) => (
+              <Card name={el.name} capital={el.capital.name} image={el.image}/>
+            ))
+          }
         </div>
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 [
   {
     "name": "Канада",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=13g1-8fPxZXveTMp5o8C6aT51s9r4HGDw",
     "videoUrl": "https://www.youtube.com/embed/hMPMUDydTtQ",
     "ISOCode": "CAN",
     "capital": {
@@ -13,7 +13,7 @@
   },
   {
     "name": "Беларусь",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1jxr-3S-i-zDlljXF9E4ozeXaXjaBW-WX",
     "videoUrl": "https://www.youtube.com/embed/X184wDd1qd4",
     "ISOCode": "BY",
     "capital": {
