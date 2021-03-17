@@ -43,7 +43,12 @@ authRouter.post("/signin", koaBody({ multipart: true }), async (ctx, next) => {
   login = login.toLowerCase();
   const users = JSON.parse(fs.readFileSync(pathToUsers));
   const user = users.find((user) => user.login === login);
-  ctx.status = user && user.password === password ? 200 : 403;
+  if (user && user.password === password) {
+    ctx.status = 200;
+    ctx.body = user;
+  } else {
+    ctx.status = 403;
+  }
   await next();
 });
 

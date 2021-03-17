@@ -9,6 +9,11 @@ const initialState = {
   locale: getData("lang", "en_US"),
   dict: {},
   user: getData("user", null),
+  searchValue: '',
+  authForm: {
+    isFormOpen: false,
+    isSignup: true
+  }
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -37,6 +42,15 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         searchValue: action.payload,
+      };
+    }
+    case actions.SET_AUTHFORM: {
+      return {
+        ...state,
+        authForm: {
+          ...state.authForm,
+          ...action.payload
+        }
       }
     }
     default:

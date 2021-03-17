@@ -1,6 +1,7 @@
 [
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=13g1-8fPxZXveTMp5o8C6aT51s9r4HGDw",
+    "promo": "https://www.rabstol.net/uploads/gallery/main/633/rabstol_net_canada_28.jpg",
     "videoUrl": "https://www.youtube.com/embed/hMPMUDydTtQ",
     "ISOCode": "CAN",
     "capitalCoordinates": [0],
@@ -24,7 +25,8 @@
     "currency": "CAD"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1jxr-3S-i-zDlljXF9E4ozeXaXjaBW-WX",
+    "promo": "https://turkishairlines.ssl.cdn.sdlmedia.com/637128080677612510QH.jpg",
     "videoUrl": "https://www.youtube.com/embed/X184wDd1qd4",
     "ISOCode": "BY",
     "capitalCoordinates": [0],
@@ -48,7 +50,8 @@
     "currency": "BYN"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1EX0w7UEtI5yP092Do6GFly7kBFCwrbcE",
+    "promo": "https://tripmydream.cc/travelhub/travel/region/35/4/354.jpg",
     "videoUrl": "https://www.youtube.com/embed/f5TlDwCs2Yw",
     "ISOCode": "ROU",
     "capitalCoordinates": [0],
@@ -72,7 +75,8 @@
     "currency": "RON"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1Lt8tSW_1Lfo49EB0ZSrDnlyTC6Doix8b",
+    "promo": "http://royalmile.com.ua/wp-content/uploads/2016/08/universities_canberra.jpg.pagespeed.ce.LuR5vdbM_U.jpg",
     "videoUrl": "https://www.youtube.com/embed/tVTT95C8J4o",
     "ISOCode": "AUS",
     "capitalCoordinates": [0],
@@ -96,7 +100,8 @@
     "currency": "AUD"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1_hrzs-5aak4Cr0OUqzTaaBXg-gOeN5D0",
+    "promo": "https://photos.mandarinoriental.com/is/image/MandarinOriental/paris-2017-home",
     "videoUrl": "https://www.youtube.com/embed/Joq6QU9Fm3Y",
     "ISOCode": "FRA",
     "capitalCoordinates": [0],
@@ -120,7 +125,8 @@
     "currency": "EUR"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1lco_Z8rfebUFSe3iOEa01JcbnqTvTw7R",
+    "promo": "https://kidpassage.com/images/publications/praga-v-noyabre-otdyih-pogoda/1397_gallery1035227394.jpg",
     "videoUrl": "https://www.youtube.com/embed/H-flfSplh2A",
     "ISOCode": "CZE",
     "capitalCoordinates": [0],
@@ -144,7 +150,8 @@
     "currency": "CZK"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1TPs809ouVNztq2FqWnwtJbt6oo3kqTXp",
+    "promo": "https://estaline.by/stories/images/gorod/20132602125523-2.jpg",
     "videoUrl": "https://www.youtube.com/embed/BNdJaetPrlg",
     "ISOCode": "SWE",
     "capitalCoordinates": [0],
@@ -168,7 +175,8 @@
     "currency": "SEK"
   },
   {
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1nukaAsT1jDcsOgq2k7u3SNr3Fa1hNixR",
+    "promo": "https://www.oblgazeta.ru/media/filer_public/2020/03/30/ae05b4b6-0ee8-4339-b577-247c9dbe71af-%D0%A2%D0%BE%D0%BA%D0%B8%D0%BE.jpg",
     "videoUrl": "https://www.youtube.com/embed/Gb0TQ7VeApY",
     "ISOCode": "JPN",
     "capitalCoordinates": [0],
