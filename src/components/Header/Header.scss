@@ -1,5 +1,30 @@
-.header {
+.logo_title {
+  font-weight: 800;
+  color: transparent;
+  font-size: 80px;
+  background: url(/src/assets/img/sky.jpg) repeat;
+  background-position: 40% 50%;
+  -webkit-background-clip: text;
+  position: relative;
+  text-align: center;
+  line-height: 90px;
+  letter-spacing: -8px;
 }
-.travel_logo {
-  width: 40px;
+
+.logo_title a {
+  color: transparent;
+}
+
+.sign {
+  width: 92px;
+  height: 40px;
+  border-radius: 43px;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.sign:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
