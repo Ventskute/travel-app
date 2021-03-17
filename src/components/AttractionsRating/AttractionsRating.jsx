@@ -11,26 +11,26 @@ function AttractionsRating({ currentImage, countryState }) {
     {
       score: 0,
       user: {
-        name: 'Vasya',
+        login: 'Vasya',
         avatar: ava1,
       },
     },
     {
       score: 4,
       user: {
-        name: 'Petya',
+        login: 'Petya',
         avatar: ava2,
       },
     },
     {
       score: 3,
       user: {
-        name: 'Galya',
+        login: 'vasya32',
         avatar: ava3,
       },
     },
   ]);
-  const currUser = 'Galya';
+  const currUser = 'vasya32';
   //_________________________________________
 
   const { attractions } = countryState;
@@ -38,11 +38,11 @@ function AttractionsRating({ currentImage, countryState }) {
   const [totalRating, setTotalRating] = React.useState(attractions.rating || 0);
   const rateArr = Array(5).fill(null);
   const [showAll, setShowAll] = React.useState(false);
-
+  console.log(countryState.attractions[currentImage].ratings)
   React.useEffect(() => {
     // проверка объекта проголосовавших на соответствие текущему пользователю и взятие его рейтинга, будет брать рейтинг после каждой смены картинки
-    ratings.map((el) => {
-      if (el.user.name === currUser) {
+    countryState.attractions[currentImage].ratings.map((el) => {
+      if (el.userLogin === currUser) {
         setRating(el.score);
       }
     });
@@ -51,8 +51,10 @@ function AttractionsRating({ currentImage, countryState }) {
   const getRating = (index) => {
     setRating(index + 1);
     // сдесь будет post рейтинга на бэк
+    // 
+    // fetch(`http://localhost:8000/countries/CAN/dhuaggwyt?login=vasya322&score=${}`, {})
     ratings.map((el) => {
-      if (el.user.name === currUser) {
+      if (el.user.login === currUser) {
         el.score = index + 1;
       }
     });

@@ -7,7 +7,7 @@ function AllUsersRatings({ ratings }) {
       {ratings.map((el, index) => (
         <div className={`all-users-ratings__user${index} user`} key={index}>
           <img className={`all-users-ratings__user_avatar`} src={el.user.avatar} />
-          <span className={`all-users-ratings__user_name`}>{el.user.name}</span>
+          <span className={`all-users-ratings__user_name`}>{el.user.login}</span>
           <span className={`all-users-ratings__user_score`}>
             {Array(5)
               .fill(null)
