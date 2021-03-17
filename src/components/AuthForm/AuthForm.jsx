@@ -1,36 +1,33 @@
 import React, { useRef, useState } from "react";
+import { signin, signup } from "../../utils/api";
 
 import "./AuthForm.scss";
 
-const AuthForm = ({
-  isSignup,
-  url = "http://localhost:3000/",
-  setUser = (user) => console.log("you should provide setUser"),
-}) => {
+const AuthForm = ({ isSignup, setUser, closeForm }) => {
   const [imgUrl, setImgUrl] = useState(
     "https://www.pinclipart.com/picdir/big/15-154296_gender-neutral-user-account-icon-png-clipart.png"
   );
   const [loginValue, setLoginValue] = useState("");
-  const [loginPlaceHolder, setLoginPlaceHolder] = useState("login");
+  const [loginPlaceHolder, setLoginPlaceHolder] = useState("name");
   const form = useRef(null);
   const reader = new FileReader();
   reader.onload = (e) => {
     setImgUrl(e.target.result);
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const data = new FormData(form.current);
-    fetch(`${url}${isSignup ? "signup" : "signin"}`, { method: "POST", body: data }).then((res) => {
-      if (res.status === 403) {
-        setLoginValue("");
-        isSignup
-          ? setLoginPlaceHolder("this login already taken")
-          : setLoginPlaceHolder("login or password is incorrect");
-      } else if (res.status === 200) {
-        setUser({ login: loginValue });
-      }
-    });
+    const resStatus = isSignup ? await signup(data) : await signin(data);
+    if (resStatus === 403) {
+      setLoginValue("");
+      isSignup
+        ? setLoginPlaceHolder("this name already taken")
+        : setLoginPlaceHolder("name or password is incorrect");
+    } else if (resStatus === 200) {
+      setUser({ login: loginValue });
+      closeForm();
+    }
   };
 
   return (
@@ -49,11 +46,6 @@ const AuthForm = ({
             }}
           />
         </div>
-        {isSignup && (
-          <div className="auth-form_input">
-            <input name="name" type="text" required placeholder="name" />
-          </div>
-        )}
         <div className="auth-form_input">
           <input type="password" name="password" required placeholder="password" />
         </div>

@@ -1,22 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import AuthForm from "../../components/AuthForm/AuthForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import PromoBlock from "../../components/PromoBlock/PromoBlock";
 import Search from "../../components/Search/Search";
 import actions from "../../utils/actions";
+import { getLocaleTxt } from "../../utils/api";
 
 import "./Main.scss";
 
 export default function Main() {
-  const { locale, dict } = useSelector((state) => state);
+  const { locale, dict, user } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [authForm, setAuthForm] = useState({ isFormOpen: false, isSignup: true });
+
+  const setUser = (user) => {
+    dispatch({ type: actions.SET_USER, user: user });
+  };
+  const logoutUser = () => {
+    dispatch({ type: actions.REMOVE_USER });
+  };
+
+  const openSignupForm = () => {
+    setAuthForm({ ...authForm, isFormOpen: true, isSignup: true });
+  };
+  const openSigninForm = () => {
+    setAuthForm({ ...authForm, isFormOpen: true, isSignup: false });
+  };
+  const closeAuthForm = () => {
+    setAuthForm({ ...authForm, isFormOpen: false });
+  };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/locale/${locale}`)
-      .then((res) => res.json())
-      .then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
+    getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
   }, []);
 
   return (
@@ -24,6 +42,9 @@ export default function Main() {
       <Header>
         <Search />
       </Header>
+      { authForm.isFormOpen &&
+        <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
+      }
       <PromoBlock />
       <main className="main">
         <div className="container">
