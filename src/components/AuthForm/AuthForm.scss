@@ -1,0 +1,31 @@
+.auth-form-container {
+  width: auto;
+  height: auto;
+  background-color: rgb(235, 193, 164);
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.auth-form {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.preImg {
+  margin: 0;
+  display: block;
+  height: 5rem;
+  width: auto;
+}
+input[type="file"] {
+  display: none;
+}
+.add-avatar-btn {
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
