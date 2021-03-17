@@ -1,10 +1,31 @@
 import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import actions from "../../utils/actions";
 
 import "./Header.scss";
 
 export default function Header({ children }) {
+  const { user } = useSelector(state => state);
+  const dispatch = useDispatch();
+
   const logo = useRef(null);
+
+  const logoutUser = () => {
+    dispatch({ type: actions.REMOVE_USER });
+  };
+  const openSignupForm = () => {
+    dispatch({
+      type: actions.SET_AUTHFORM,
+      payload: { isFormOpen: true, isSignup: true }
+    });
+  };
+  const openSigninForm = () => {
+    dispatch({
+      type: actions.SET_AUTHFORM,
+      payload: { isFormOpen: true, isSignup: false }
+    });
+  };
 
   useEffect(() => {
     document.addEventListener("mousemove", function (e) {
@@ -16,19 +37,25 @@ export default function Header({ children }) {
     });
   }, []);
 
-  let userLogged;
-
   return (
-    <>
       <header>
         <div className="container">
           <Link to="/">
             <p className="logo_title" ref={logo}>TRAVEL APP</p>
           </Link>
-          <button className="sign">Sign in</button>
+
+          <div className="login-buttons">
+            { !user && <>
+              <button className="login-button" onClick={openSignupForm}>Sign up</button>
+              <button className="login-button" onClick={openSigninForm}>Log in</button>
+            </>}
+            { user &&
+              <button className="login-button" onClick={logoutUser}>Log out</button>
+            }
+          </div>
+
           {children && children}
         </div>
       </header>
-    </>
   );
 }

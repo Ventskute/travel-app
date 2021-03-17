@@ -1,15 +1,20 @@
 import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { signin, signup } from "../../utils/api";
 
 import "./AuthForm.scss";
 
 const AuthForm = ({ isSignup, setUser, closeForm }) => {
+  const { dict } = useSelector(state => state);
+
   const [imgUrl, setImgUrl] = useState(
     "https://www.pinclipart.com/picdir/big/15-154296_gender-neutral-user-account-icon-png-clipart.png"
   );
   const [loginValue, setLoginValue] = useState("");
   const [loginPlaceHolder, setLoginPlaceHolder] = useState("name");
+
   const form = useRef(null);
+
   const reader = new FileReader();
   reader.onload = (e) => {
     setImgUrl(e.target.result);
@@ -19,6 +24,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
     e.preventDefault();
     const data = new FormData(form.current);
     const resStatus = isSignup ? await signup(data) : await signin(data);
+
     if (resStatus === 403) {
       setLoginValue("");
       isSignup
@@ -31,28 +37,24 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h3>{isSignup ? "Signup" : "Signin"} form</h3>
-      <form className="auth-form" ref={form} onSubmit={submit}>
-        <div className="auth-form_input">
+    <div className="auth-modal">
+      <div className="auth-form-container">
+        <h2 className="auth-form--title">{isSignup ? "Signup" : "Signin"} form</h2>
+        <form className="auth-form" ref={form} onSubmit={submit}>
           <input
             name="login"
             type="text"
             required
             placeholder={loginPlaceHolder}
             value={loginValue}
+            className="auth-form--input"
             onChange={(e) => {
               setLoginValue(e.target.value);
             }}
           />
-        </div>
-        <div className="auth-form_input">
-          <input type="password" name="password" required placeholder="password" />
-        </div>
-        {isSignup && (
-          <div className="auth-form_input input-imgFile">
-            <label className="add-avatar-btn">
-              <img src={imgUrl} className="preImg" alt="avatar" />
+          <input type="password" name="password" className="auth-form--input" required placeholder="password" />
+          {isSignup && (
+            <label className="add-avatar-btn auth-form--input_file" style={{backgroundImage: `url(${imgUrl})`}}>
               <input
                 type="file"
                 accept="image/*"
@@ -61,13 +63,14 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
                   reader.readAsDataURL(e.target.files[0]);
                 }}
               />
-              add avatar
+              {dict.ADD_AVATAR}
             </label>
-          </div>
-        )}
-        <input type="submit" className="auth-form_submit button" value="submit" />
-      </form>
+          )}
+          <input type="submit" className="auth-form_submit" value="submit" />
+        </form>
+      </div>
     </div>
+
   );
 };
 

@@ -12,27 +12,19 @@ import "./Main.scss";
 import Card from "../../components/Card/Card";
 
 export default function Main() {
-  const { locale, dict, user, searchValue } = useSelector((state) => state);
+  const { locale, dict, user, searchValue, authForm } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const [authForm, setAuthForm] = useState({ isFormOpen: false, isSignup: true });
   const [countries, setCountries] = useState([]);
 
   const setUser = (user) => {
     dispatch({ type: actions.SET_USER, user: user });
   };
-  const logoutUser = () => {
-    dispatch({ type: actions.REMOVE_USER });
-  };
-
-  const openSignupForm = () => {
-    setAuthForm({ ...authForm, isFormOpen: true, isSignup: true });
-  };
-  const openSigninForm = () => {
-    setAuthForm({ ...authForm, isFormOpen: true, isSignup: false });
-  };
   const closeAuthForm = () => {
-    setAuthForm({ ...authForm, isFormOpen: false });
+    dispatch({
+      type: actions.SET_AUTHFORM,
+      payload: { isFormOpen: false }
+    });
   };
 
   useEffect(() => {
