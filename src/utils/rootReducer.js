@@ -9,6 +9,7 @@ const initialState = {
   locale: getData("lang", "en_US"),
   dict: {},
   user: getData("user", null),
+  searchValue: ''
 };
 
 export default function rootReducer(state = initialState, action) {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
@@ -8,13 +7,12 @@ import PromoBlock from "../../components/PromoBlock/PromoBlock";
 import Search from "../../components/Search/Search";
 import actions from "../../utils/actions";
 import { getCountries, getLocaleTxt } from "../../utils/api";
-import image from '../../assets/img/belarus_promo.jpg';
 
 import "./Main.scss";
 import Card from "../../components/Card/Card";
 
 export default function Main() {
-  const { locale, dict, user } = useSelector((state) => state);
+  const { locale, dict, user, searchValue } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [authForm, setAuthForm] = useState({ isFormOpen: false, isSignup: true });
@@ -50,13 +48,18 @@ export default function Main() {
       }
       <PromoBlock />
       <main className="main">
-        <h2 className='countries'>Countries</h2>
+        <h2 className='countries'>{dict.COUNTRIES}</h2>
         <Search />
         <div className="container cards-container">
           {
-            countries.map((el, i) => (
-              <Card name={el.name} capital={el.capital.name} image={el.image} key={i}/>
-            ))
+            countries.map((el, i) => {
+              if (searchValue === '' ||
+                  el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+                  el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
+              ) {
+                return <Card name={el.name} capital={el.capital.name} image={el.image} key={i}/>
+              }
+            })
           }
         </div>
       </main>
