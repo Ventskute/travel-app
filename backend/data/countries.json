@@ -25,7 +25,7 @@
   },
   {
     "name": "Румыния",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1EX0w7UEtI5yP092Do6GFly7kBFCwrbcE",
     "videoUrl": "https://www.youtube.com/embed/f5TlDwCs2Yw",
     "ISOCode": "ROU",
     "capital": {
@@ -37,7 +37,7 @@
   },
   {
     "name": "Австралия",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1Lt8tSW_1Lfo49EB0ZSrDnlyTC6Doix8b",
     "videoUrl": "https://www.youtube.com/embed/tVTT95C8J4o",
     "ISOCode": "AUS",
     "capital": {
@@ -49,7 +49,7 @@
   },
   {
     "name": "Франция",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1_hrzs-5aak4Cr0OUqzTaaBXg-gOeN5D0",
     "videoUrl": "https://www.youtube.com/embed/Joq6QU9Fm3Y",
     "ISOCode": "FRA",
     "capital": {
@@ -61,7 +61,7 @@
   },
   {
     "name": "Чехия",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1lco_Z8rfebUFSe3iOEa01JcbnqTvTw7R",
     "videoUrl": "https://www.youtube.com/embed/H-flfSplh2A",
     "ISOCode": "CZE",
     "capital": {
@@ -73,7 +73,7 @@
   },
   {
     "name": "Швеция",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1TPs809ouVNztq2FqWnwtJbt6oo3kqTXp",
     "videoUrl": "https://www.youtube.com/embed/BNdJaetPrlg",
     "ISOCode": "SWE",
     "capital": {
@@ -85,7 +85,7 @@
   },
   {
     "name": "Япония",
-    "image": "www.example.com/example.jpg",
+    "image": "https://drive.google.com/uc?export=view&id=1nukaAsT1jDcsOgq2k7u3SNr3Fa1hNixR",
     "videoUrl": "https://www.youtube.com/embed/Gb0TQ7VeApY",
     "ISOCode": "JPN",
     "capital": {
