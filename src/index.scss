@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
 }
 
 body {
@@ -11,6 +12,18 @@ body {
 
 .container {
   height: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+
+  @media screen and (max-width: 1400px) {
+    max-width: 1024px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    max-width: 768px;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 400px;
+  }
 }

@@ -43,12 +43,13 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 
 countryRouter.get("/countryoftheday", async (ctx, next) => {
   const countries = JSON.parse(fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8"));
-  const country = countries.find((country) => country.ISOCode === "BY");
+  const country = countries[new Date().getDate() % countries.length];
   ctx.response.set("content-type", "application/json");
   ctx.body = country;
   ctx.status = 200;
   await next();
 });
+
 countryRouter.post("/:ISOCode/:attractionId", koaBody(), async (ctx, next) => {
   const params = ctx.query;
   console.dir(param);

@@ -1,5 +1,6 @@
 {
   "BELARUS": "Belarus",
   "MAP": "map",
-  "SEARCH_PLACEHOLDER": "Country or capital..."
+  "SEARCH_PLACEHOLDER": "Country or capital...",
+  "COUNTRY_OF_THE_DAY": "Country of the day — "
 }
