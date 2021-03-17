@@ -109,6 +109,16 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "language",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -324,7 +334,7 @@
       "User": {
         "type": "object",
         "properties": {
-          "name": {
+          "login": {
             "type": "string",
             "example": "Vasya"
           },

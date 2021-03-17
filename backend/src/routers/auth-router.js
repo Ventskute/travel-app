@@ -8,19 +8,26 @@ const authRouter = new Router();
 const pathToUsers = path.resolve(__dirname, "../../data/users.json");
 
 authRouter.post("/signup", koaBody({ multipart: true }), async (ctx, next) => {
-  let { login, password, name } = ctx.request.body;
+  let { login, password } = ctx.request.body;
   login = login.toLowerCase();
   const users = JSON.parse(fs.readFileSync(pathToUsers));
 
   if (users.every((user) => user.login !== login)) {
     let pathToAvatar = null;
-    if (ctx.request.files && ctx.request.files.avatar && ctx.request.files.avatar.type.includes("image")) {
-      pathToAvatar = `statics/users/${login}${ctx.request.files.avatar.name.replace(/^.+[.]/, ".")}`;
+    if (
+      ctx.request.files &&
+      ctx.request.files.avatar &&
+      ctx.request.files.avatar.type.includes("image")
+    ) {
+      pathToAvatar = `statics/users/${login}${ctx.request.files.avatar.name.replace(
+        /^.+[.]/,
+        "."
+      )}`;
       const avatarStrR = fs.createReadStream(ctx.request.files.avatar.path);
       const avatarStrW = fs.createWriteStream(`data/${pathToAvatar}`);
       avatarStrR.pipe(avatarStrW);
     }
-    const newUser = { login, password, name, avatar: pathToAvatar };
+    const newUser = { login, password, avatar: pathToAvatar };
     users.push(newUser);
     fs.writeFileSync(pathToUsers, JSON.stringify(users));
     ctx.status = 200;

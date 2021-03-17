@@ -1,3 +1,6 @@
 export default {
-  ADD_LOCALE: 'ADD_LOCALE'
-}
+  ADD_LOCALE: "ADD_LOCALE",
+  SET_USER: "SET_USER",
+  REMOVE_USER: "REMOVE_USER",
+  SEARCH: "SEARCH"
+};
