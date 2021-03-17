@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
-export default function Header({children}) {
+export default function Header({ children }) {
   useEffect(() => {
     document.addEventListener("mousemove", function (e) {
       let mouseX = e.pageX;
