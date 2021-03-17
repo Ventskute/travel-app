@@ -55,8 +55,8 @@ export default function Main() {
         <h2 className='countries'>Countries</h2>
         <div className="container cards-container">
           {
-            countries.map((el) => (
-              <Card name={el.name} capital={el.capital.name} image={el.image}/>
+            countries.map((el, i) => (
+              <Card name={el.name} capital={el.capital.name} image={el.image} key={i}/>
             ))
           }
         </div>

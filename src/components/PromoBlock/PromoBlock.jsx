@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCountryOfTheDay } from "../../utils/api";
 import "./PromoBlock.scss";
 
 export default function PromoBlock() {
   const [country, setCountry] = useState(null);
+  const { dict } = useSelector(state => state);
 
   useEffect(() => {
-    fetch("//localhost:3000/countries/countryoftheday")
-      .then((response) => {
-        return response.json();
-      })
-      .catch((e) => console.error(e))
+    getCountryOfTheDay()
       .then((country) => {
         setCountry(country);
       });
@@ -22,7 +21,7 @@ export default function PromoBlock() {
         <div className="promo">
           <div className="container">
             <h2 className="title">
-                {"Country of the day — "}
+                {dict.COUNTRY_OF_THE_DAY}
                 {country && country.name}
             </h2>
           </div>

@@ -1,5 +1,6 @@
 {
   "BELARUS": "Беларусь",
   "MAP": "карта",
-  "SEARCH_PLACEHOLDER": "Страна или столица..."
+  "SEARCH_PLACEHOLDER": "Страна или столица...",
+  "COUNTRY_OF_THE_DAY": "Страна дня — "
 }
