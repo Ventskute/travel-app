@@ -1,4 +1,5 @@
 {
   "BELARUS": "Belarus",
-  "MAP": "map"
+  "MAP": "map",
+  "SEARCH_PLACEHOLDER": "Country or capital..."
 }

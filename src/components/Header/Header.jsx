@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
-export default function Header() {
+export default function Header({children}) {
   useEffect(() => {
     document.addEventListener("mousemove", function (e) {
       let mouseX = e.pageX;
@@ -25,8 +25,9 @@ export default function Header() {
             <Link to="/">
               <p>TRAVEL APP</p>
             </Link>
-            <button className="sign">Sign in</button>
           </div>
+          <button className="sign">Sign in</button>
+          {children && children}
         </div>
       </header>
     </>

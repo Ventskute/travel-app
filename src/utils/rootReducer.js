@@ -2,7 +2,8 @@ import actions from "./actions"
 
 const initialState = {
   locale: 'en_US',
-  dict: {}
+  dict: {},
+  searchValue: '',
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -11,6 +12,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dict: action.payload
+      }
+    }
+    case actions.SEARCH: {
+      return {
+        ...state,
+        searchValue: action.payload,
       }
     }
     default:

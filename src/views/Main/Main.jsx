@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import PromoBlock from "../../components/PromoBlock/PromoBlock";
+import Search from "../../components/Search/Search";
 import actions from "../../utils/actions";
 
 import "./Main.scss";
@@ -20,7 +21,9 @@ export default function Main() {
 
   return (
     <>
-      <Header />
+      <Header>
+        <Search />
+      </Header>
       <PromoBlock />
       <main className="main">
         <div className="container">
