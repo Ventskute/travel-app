@@ -27,6 +27,7 @@
   &-link {
     text-decoration: none;
     width: calc(25% - 40px);
+    min-width: 250px;
     margin-right: 40px;
   }
 }

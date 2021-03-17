@@ -44,15 +44,14 @@ export default function Main() {
 
   return (
     <>
-      <Header>
-        <Search />
-      </Header>
+      <Header />
       { authForm.isFormOpen &&
         <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
       }
       <PromoBlock />
       <main className="main">
         <h2 className='countries'>Countries</h2>
+        <Search />
         <div className="container cards-container">
           {
             countries.map((el, i) => (
