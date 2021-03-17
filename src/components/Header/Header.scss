@@ -1,30 +1,13 @@
 .logo_title {
-  font-weight: 800;
   color: transparent;
-  font-size: 80px;
-  background: url(/src/assets/img/sky.jpg) repeat;
-  background-position: 40% 50%;
+  background: url("https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg") repeat;
+  background-position: 0% 50%;
+  background-clip: text;
   -webkit-background-clip: text;
-  position: relative;
+
+  font-size: 80px;
+  font-weight: 800;
+
   text-align: center;
-  line-height: 90px;
   letter-spacing: -8px;
-}
-
-.logo_title a {
-  color: transparent;
-}
-
-.sign {
-  width: 92px;
-  height: 40px;
-  border-radius: 43px;
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  right: 0;
-}
-.sign:hover {
-  cursor: pointer;
-  transform: scale(1.1);
 }
