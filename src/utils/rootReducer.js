@@ -33,6 +33,12 @@ export default function rootReducer(state = initialState, action) {
         user: getData("user", null),
       };
     }
+    case actions.SEARCH: {
+      return {
+        ...state,
+        searchValue: action.payload,
+      }
+    }
     default:
       return state;
   }

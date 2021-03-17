@@ -5,6 +5,7 @@ import AuthForm from "../../components/AuthForm/AuthForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import PromoBlock from "../../components/PromoBlock/PromoBlock";
+import Search from "../../components/Search/Search";
 import actions from "../../utils/actions";
 import { getLocaleTxt } from "../../utils/api";
 
@@ -38,10 +39,12 @@ export default function Main() {
 
   return (
     <>
-      <Header />
-      {authForm.isFormOpen && (
+      <Header>
+        <Search />
+      </Header>
+      { authForm.isFormOpen &&
         <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
-      )}
+      }
       <PromoBlock />
       <main className="main">
         <div className="container">
