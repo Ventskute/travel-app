@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
-export default function Header() {
+export default function Header({children}) {
   return (
     <>
       <header>
         <div className="container">
+          {children}
           <Link to="/">Main</Link>
         </div>
       </header>
