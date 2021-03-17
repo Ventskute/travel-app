@@ -16,7 +16,9 @@ countryRouter.get("/", async (ctx, next) => {
 
 countryRouter.get("/:ISOCode", async (ctx, next) => {
   const ISOCode = ctx.params.ISOCode;
-  const countries = JSON.parse(fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8"));
+  const countries = JSON.parse(
+    fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
+  );
   const country = countries.find((country) => country.ISOCode === ISOCode);
   if (country) {
     const users = JSON.parse(fs.readFileSync(path.resolve(pathToData, "users.json"), "utf-8"));
@@ -26,8 +28,9 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
     country.attractions = attractions.map((attraction) => {
       delete attraction.countryISO;
       if (attraction.ratings) {
-        attraction.raitings = attraction.ratings.map((rating) => {
+        attraction.ratings = attraction.ratings.map((rating) => {
           rating.user = users.find((user) => user.login === rating.userLogin);
+          delete rating.user.password;
           delete rating.userLogin;
           return rating;
         });
@@ -42,7 +45,9 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 });
 
 countryRouter.get("/countryoftheday", async (ctx, next) => {
-  const countries = JSON.parse(fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8"));
+  const countries = JSON.parse(
+    fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
+  );
   const country = countries.find((country) => country.ISOCode === "BY");
   ctx.response.set("content-type", "application/json");
   ctx.body = country;
