@@ -7,6 +7,7 @@ import actions from '../../utils/actions';
 import './Search.scss';
 
 export default function Search() {
+  const { dict } = useSelector((state) => state);
   const [value, setValue] = useState('');
 
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export default function Search() {
 
   return (
     <form className='search-form' onSubmit={submitAction}>
-      <input type='text' value={value} onChange={(e) => setValue(e.target.value)} className='search-form--input' autoFocus/>
+      <input type='text' value={value} onChange={(e) => setValue(e.target.value)} className='search-form--input' autoFocus placeholder={dict.SEARCH_PLACEHOLDER}/>
       { value !== '' &&
         <img src={crossImg} alt='delete' className='search-form--cross' onClick={() => {setValue(''); dispatch({type: actions.SEARCH, payload: ''})}}/>
       }
