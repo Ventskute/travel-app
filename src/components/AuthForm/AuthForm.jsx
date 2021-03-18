@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { signin, signup } from "../../utils/api";
+import { url, signin, signup } from "../../utils/api";
 
 import "./AuthForm.scss";
 
@@ -38,7 +38,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
       } else {
         setUser({
           login: loginValue,
-          avatar: `http://localhost:3000/statics/users/${loginValue.toLowerCase()}${imgUrl.substr(
+          avatar: `${url}statics/users/${loginValue.toLowerCase()}${imgUrl.substr(
             imgUrl.lastIndexOf(".")
           )}`,
         });

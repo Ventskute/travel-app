@@ -29,12 +29,7 @@
     }
   }
 
-  img {
-    max-height: 450px !important;
-
-    .fullscreen & {
-      max-height: calc(100vh - 80px) !important;
-    }
+  .image-gallery-content:not(.fullscreen) .image-gallery-slide .image-gallery-image {
+    max-height: 450px;
   }
-
 }

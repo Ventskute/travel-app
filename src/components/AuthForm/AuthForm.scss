@@ -70,6 +70,8 @@
         background-color: $color-bg-input;
         border-radius: 50%;
         text-transform: uppercase;
+        color: $color-focus;
+        font-weight: 900;
 
         background-size: cover;
       }
