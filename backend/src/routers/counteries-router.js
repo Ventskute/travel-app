@@ -31,6 +31,7 @@ countryRouter.get("/", async (ctx, next) => {
     const parsedCountry = parseCountry(country, lang);
     addUrl(parsedCountry, "image", ctx.request.origin);
     delete parsedCountry.description;
+    delete parsedCountry.geometry;
     return parsedCountry;
   });
 

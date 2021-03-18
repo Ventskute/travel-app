@@ -26,7 +26,6 @@ export default function Swiper({countryState, setCurrentImage}) {
       items={images}
       onSlide={(index) => {
         setCurrentImage(index);
-        console.log(index);
       }}
     />
   );

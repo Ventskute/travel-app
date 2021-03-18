@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './WidgetTime.scss';
 
-function WidgetTime({ timeZoneName, lang = 'en-US' }) {
+function WidgetTime({ timeZoneName }) {
+  const { dict, locale } = useSelector(state => state);
   const [currentDate, setCurrentDate] = React.useState(getCurrentDate());
 
   React.useEffect(() => {
@@ -22,13 +24,13 @@ function WidgetTime({ timeZoneName, lang = 'en-US' }) {
       timeZone: timeZoneName,
     };
     const date = new Date();
-    return date.toLocaleString(lang, dateOptions);
+    return date.toLocaleString(locale.substr(0, 2), dateOptions);
   }
 
   return (
     <div className="widget widgets__current-time">
-      <h3 className="current-time__title">Current date/time</h3>
-      <h4 className="current-time__value">{currentDate}</h4>
+      <h3 className="current-time__title">{dict.DATE_TIME}</h3>
+      <p className="current-time__value">{currentDate}</p>
     </div>
   );
 }
