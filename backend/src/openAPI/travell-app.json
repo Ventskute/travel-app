@@ -328,6 +328,10 @@
           "name": {
             "type": "string",
             "example": "Minsk"
+          },
+          "timeZoneName": {
+            "type": "string",
+            "example": "Europe/Minsk"
           }
         }
       },

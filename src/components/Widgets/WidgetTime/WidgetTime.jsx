@@ -1,7 +1,7 @@
 import React from 'react';
 import './WidgetTime.scss';
 
-function WidgetTime() {
+function WidgetTime({ timeZoneName, lang = 'en-US' }) {
   const [currentDate, setCurrentDate] = React.useState(getCurrentDate());
 
   React.useEffect(() => {
@@ -19,13 +19,18 @@ function WidgetTime() {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      timeZone: 'America/New_York',
+      timeZone: timeZoneName,
     };
     const date = new Date();
-    return date.toLocaleString('en-US', dateOptions);
+    return date.toLocaleString(lang, dateOptions);
   }
 
-  return <div className="widgets__current-time">{currentDate}</div>;
+  return (
+    <div className="widget widgets__current-time">
+      <h3 className="current-time__title">Current date/time</h3>
+      <h4 className="current-time__value">{currentDate}</h4>
+    </div>
+  );
 }
 
 export default WidgetTime;

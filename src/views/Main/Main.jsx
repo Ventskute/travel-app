@@ -28,7 +28,7 @@ export default function Main() {
   };
 
   useEffect(() => {
-    getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
+    getLocaleTxt(locale).then((res) => {console.log(res);dispatch({ type: actions.ADD_LOCALE, payload: res })});
     getCountries(locale).then((res) => setCountries(res));
   }, []);
 
@@ -49,7 +49,7 @@ export default function Main() {
                   el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
                   el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
               ) {
-                return <Card name={el.name} capital={el.capital.name} image={el.image} key={i}/>
+                return <Card name={el.name} capital={el.capital.name} link={el.ISOCode} image={el.image} key={i}/>
               }
             })
           }

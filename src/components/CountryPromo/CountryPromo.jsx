@@ -1,20 +1,25 @@
 import React from 'react';
-import Widgets  from '../Widgets/Widgets';
-import layoutCountry from '../../assets/img/layout-country.jpeg';
+import { useSelector } from 'react-redux';
+import Widgets from '../Widgets/Widgets';
+
 import './CountryPromo.scss';
 
-function CountryPromo() {
-  return (
-    <div className="wrapper country-promo__wrapper">
-      <div className="country-promo__card">
-        <img className="card__image" src={layoutCountry} alt="layout-country"></img>
-        <h2 className="card__title">Magical Paris</h2>
-        <p className="card__subtitle">
-          City of light, one of the most famous cities in the world is waiting to be explored. Some
-          of the most famous museums, food and landmarks are waiting for you in Paris.
-        </p>
+function CountryPromo({ countryState }) {
+  const { dict } = useSelector(state => state);
+  const { name, description, image, capital } = countryState;
+
+  return  (
+    <div className="country-promo__wrapper" style={{backgroundImage: `url(${image}`}}>
+      <div className="container">
+        <div className="country-promo__card">
+          <h2 className="card__title">{name}</h2>
+          <h3>{dict.CAPITAL} — {capital.name}</h3>
+          <p className="card__subtitle">
+            {description}
+          </p>
+        </div>
+        <Widgets countryState={countryState}/>
       </div>
-      <Widgets />
     </div>
   );
 }
