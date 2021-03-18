@@ -5,6 +5,7 @@ import actions from "../../utils/actions";
 import AuthForm from "../../components/AuthForm/AuthForm";
 
 import "./Header.scss";
+import Select from '../Select/Select';
 
 export default function Header({ children }) {
   const { user, dict, authForm } = useSelector(state => state);
@@ -78,7 +79,10 @@ export default function Header({ children }) {
             <p className="logo_title" ref={logo}>TRAVEL APP</p>
           </Link>
 
-          {children && children}
+          <div className="header-additions">
+            <Select />
+            {children && children}
+          </div>
         </div>
       </header>
       { authForm.isFormOpen &&

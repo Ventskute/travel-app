@@ -30,6 +30,13 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case actions.SET_LOCALE: {
+      localStorage.setItem("lang", action.payload);
+      return {
+        ...state,
+        locale: action.payload,
+      };
+    }
     case actions.ADD_LOCALE: {
       return {
         ...state,
