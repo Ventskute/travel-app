@@ -1,7 +1,7 @@
 import React from 'react';
-import WidgetRate from '../WidgetRate/WidgetRate';
+import WidgetRate from './WidgetRate/WidgetRate';
 
-function GeneralWidgetRate() {
+function GeneralWidgetRate({ currency }) {
   const [state, setstate] = React.useState(null);
   const backEndPath = 'localhost:3000';
   const currenciesToConvert = ['USD', 'EUR', 'BYN'];
@@ -13,8 +13,10 @@ function GeneralWidgetRate() {
   }, []);
 
   return (
-    <div> 
-      {state && currenciesToConvert.map((el) => <WidgetRate data={state} toConvert={el} />)}
+    <div className="widget rate-widget">
+      <h3 className="rate__title">Rates of major currencies</h3>
+    {/* widgetRate widgetRate widgetRate */}
+      {state && currenciesToConvert.map((el, index) => <WidgetRate currency={currency} toConvert={el} key={index} />)}
     </div>
   );
 }

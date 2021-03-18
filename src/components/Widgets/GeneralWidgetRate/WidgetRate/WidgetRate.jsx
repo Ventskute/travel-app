@@ -1,9 +1,8 @@
 import React from 'react';
 import './WidgetRate.scss';
 
-function RateWidget({ data, toConvert }) {
+function RateWidget({ currency, toConvert }) {
   const [rate, setRate] = React.useState('');
-  const { currency } = data;
 
   React.useEffect(() => {
     fetch(
@@ -14,10 +13,10 @@ function RateWidget({ data, toConvert }) {
   }, []);
 
   return (
-    <div className="widjet-rate">
-      <span>{`${toConvert} to ${currency} currency `}</span>
-      <span>{rate}</span>
-    </div>
+    <h4 className="rate__content">
+      {/* <span>{`${toConvert} to ${currency} currency `}</span>
+      <span>{rate}</span> */}
+    </h4>
   );
 }
 

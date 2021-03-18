@@ -1,0 +1,18 @@
+.country-promo__widgets {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.widget {
+  margin-bottom: 15px;
+  padding: 20px;
+  background: #ffffff99;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

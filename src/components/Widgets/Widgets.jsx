@@ -1,13 +1,16 @@
 import React from 'react';
 import WidgetTime from './WidgetTime/WidgetTime';
-import WidgetRate from './WidgetRate/WidgetRate';
+import Weather from './Weather/Weather';
+import GeneralWidgetRate from './GeneralWidgetRate/GeneralWidgetRate';
 import './Widgets.scss';
 
-function Widgets() {
+function Widgets({countryState}) {
+  const {capital: {timeZoneName, name}, currency} = countryState
   return (
     <div className="country-promo__widgets">
-      <WidgetTime />
-      <WidgetRate />
+      <WidgetTime timeZoneName={timeZoneName} />
+      <Weather city={name}/>
+      <GeneralWidgetRate currency={currency}/>
     </div>
   );
 }
