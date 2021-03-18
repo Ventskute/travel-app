@@ -2,6 +2,7 @@ const Router = require("@koa/router");
 const koaBody = require("koa-body");
 const fs = require("fs");
 const path = require("path");
+const addUrl = require("../utils/addUrl");
 
 const countryRouter = new Router({ prefix: "/countries" });
 const pathToData = path.resolve(__dirname, "../../data/");
@@ -20,10 +21,6 @@ const parseCountry = (country, lang) => {
   };
   country.description = description;
   return country;
-};
-
-const addUrl = (obj, prop, url) => {
-  obj[prop] = url + "/" + obj[prop];
 };
 
 countryRouter.get("/", async (ctx, next) => {
