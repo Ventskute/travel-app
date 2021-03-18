@@ -30,6 +30,11 @@
     "react-router-dom": "^5.2.0",
     "react-yandex-maps": "^4.6.0",
     "redux": "^4.0.5",
+<<<<<<< HEAD
+=======
+    "redux-devtools-extension": "^2.13.9",
+    "redux-mock-store": "^1.5.4",
+>>>>>>> 45643f1 (feat: add tests)
     "sass": "^1.32.8",
     "sass-loader": "^9.0.3",
     "style-loader": "^2.0.0",
@@ -50,8 +55,12 @@
     "jest": "^26.6.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
+<<<<<<< HEAD
     "redux-devtools-extension": "^2.13.9",
     "redux-mock-store": "^1.5.4"
+=======
+    "react-test-renderer": "^17.0.1"
+>>>>>>> 45643f1 (feat: add tests)
   },
   "jest": {
     "moduleNameMapper": {
