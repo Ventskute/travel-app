@@ -13,7 +13,7 @@ export default function PromoBlock() {
       .then((country) => {
         setCountry(country);
       });
-  }, []);
+  }, [locale]);
 
   return (
     <>

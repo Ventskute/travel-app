@@ -2,6 +2,7 @@ const Router = require("@koa/router");
 const koaBody = require("koa-body");
 const fs = require("fs");
 const path = require("path");
+const addUrl = require("../utils/addUrl");
 
 const authRouter = new Router();
 
@@ -30,6 +31,8 @@ authRouter.post("/signup", koaBody({ multipart: true }), async (ctx, next) => {
     const newUser = { login, password, avatar: pathToAvatar };
     users.push(newUser);
     fs.writeFileSync(pathToUsers, JSON.stringify(users));
+    addUrl(newUser, "avatar", ctx.request.origin);
+    ctx.body = newUser;
     ctx.status = 200;
   } else {
     ctx.status = 403;
@@ -45,6 +48,7 @@ authRouter.post("/signin", koaBody({ multipart: true }), async (ctx, next) => {
   const user = users.find((user) => user.login === login);
   if (user && user.password === password) {
     ctx.status = 200;
+    addUrl(user, "avatar", ctx.request.origin);
     ctx.body = user;
   } else {
     ctx.status = 403;

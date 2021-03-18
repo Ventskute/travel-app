@@ -1,23 +1,5 @@
 @import '~react-image-gallery/styles/scss/image-gallery.scss';
-
-
-
-.country-slider__slides {
-  display: flex;
-  width: 97%;
-  justify-content: space-around;
-}
-
-.slide {
-  width: 300px;
-  height: 250px;
-  background-position: center;
-  padding: 20px;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+@import '../../variables.scss';
 
 .raiting-block {
   display: flex;
@@ -29,11 +11,30 @@
   display: flex;
 }
 
-.slider-button {
-  width: 15px;
-  height: 30px;
-  cursor: pointer;
-  &:hover {
-    background-color: #3ec6ff;
+.image-gallery {
+  margin: 20px auto;
+  width: 60%;
+
+  @media screen and (max-width: 1024px) {
+    width: 80%;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  &-svg {
+    &:hover {
+      stroke: $color-focus;
+    }
+  }
+
+  img {
+    max-height: 450px !important;
+
+    .fullscreen & {
+      max-height: calc(100vh - 80px) !important;
+    }
+  }
+
 }

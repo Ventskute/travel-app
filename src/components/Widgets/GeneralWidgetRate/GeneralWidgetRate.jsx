@@ -1,22 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import WidgetRate from './WidgetRate/WidgetRate';
 
 function GeneralWidgetRate({ currency }) {
-  const [state, setstate] = React.useState(null);
-  const backEndPath = 'localhost:3000';
+  const { dict } = useSelector(state => state);
   const currenciesToConvert = ['USD', 'EUR', 'BYN'];
-
-  React.useEffect(() => {
-    fetch(`http://${backEndPath}/countries/CAN`)
-      .then((res) => res.json())
-      .then((data) => setstate(data));
-  }, []);
 
   return (
     <div className="widget rate-widget">
-      <h3 className="rate__title">Rates of major currencies</h3>
-    {/* widgetRate widgetRate widgetRate */}
-      {state && currenciesToConvert.map((el, index) => <WidgetRate currency={currency} toConvert={el} key={index} />)}
+      <h3 className="rate__title">{dict.CURRENCIES}</h3>
+      {currency && currenciesToConvert.map((el, index) => <WidgetRate currency={currency} toConvert={el} key={index} />)}
     </div>
   );
 }

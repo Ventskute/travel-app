@@ -1,8 +1,11 @@
 .promo {
   height: 400px;
+
+  background-attachment: fixed;
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
+
   margin-bottom: 40px;
   padding: 60px 0;
   transition: 0.25s ease;
@@ -12,11 +15,7 @@
   }
 
   &:hover {
-    transform: scale(1.02);
-
-    .title {
-      transform: scale(0.98);
-    }
+    height: 500px;
   }
 }
 

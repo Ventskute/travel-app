@@ -5,11 +5,11 @@ import GeneralWidgetRate from './GeneralWidgetRate/GeneralWidgetRate';
 import './Widgets.scss';
 
 function Widgets({countryState}) {
-  const {capital: {timeZoneName, name}, currency} = countryState
+  const {capital: {timeZoneName, coordinates, name}, currency} = countryState
   return (
     <div className="country-promo__widgets">
       <WidgetTime timeZoneName={timeZoneName} />
-      <Weather city={name}/>
+      <Weather coordinates={coordinates} city={name}/>
       <GeneralWidgetRate currency={currency}/>
     </div>
   );

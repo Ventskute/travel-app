@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AuthForm from "../../components/AuthForm/AuthForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import PromoBlock from "../../components/PromoBlock/PromoBlock";
@@ -12,36 +11,24 @@ import "./Main.scss";
 import Card from "../../components/Card/Card";
 
 export default function Main() {
-  const { locale, dict, user, searchValue, authForm } = useSelector((state) => state);
+  const { locale, dict, searchValue } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [countries, setCountries] = useState([]);
 
-  const setUser = (user) => {
-    dispatch({ type: actions.SET_USER, user: user });
-  };
-  const closeAuthForm = () => {
-    dispatch({
-      type: actions.SET_AUTHFORM,
-      payload: { isFormOpen: false }
-    });
-  };
-
   useEffect(() => {
-    getLocaleTxt(locale).then((res) => {console.log(res);dispatch({ type: actions.ADD_LOCALE, payload: res })});
+    getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
     getCountries(locale).then((res) => setCountries(res));
-  }, []);
+  }, [locale]);
 
   return (
     <>
-      <Header />
-      { authForm.isFormOpen &&
-        <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
-      }
+      <Header>
+        <Search />
+      </Header>
       <PromoBlock />
       <main className="main">
-        <h2 className='countries'>{dict.COUNTRIES}</h2>
-        <Search />
+        <h2 className="countries">{dict.COUNTRIES}</h2>
         <div className="container cards-container">
           {
             countries.map((el, i) => {

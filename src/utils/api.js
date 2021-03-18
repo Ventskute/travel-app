@@ -17,7 +17,7 @@ export const getCountry = (lang, ISOCode) => {
 };
 
 export const postAttractionRating = (ISOCode, attractionId, userLogin, score) => {
-  return fetch(`${url}countries/${ISOCode}/${attractionId}?login=${userLogin}&score=${score}`)
+  return fetch(`${url}countries/${ISOCode}/${attractionId}?login=${userLogin}&score=${score}`, { method: 'POST' })
     .then((response) => response.ok)
     .catch((e) => {
       console.log("cant rate with error", e);
@@ -34,13 +34,19 @@ export const getCountryOfTheDay = (lang) => {
 
 export const signin = (body) => {
   return fetch(`${url}signin`, { method: "POST", body: body })
-    .then((res) => ({status: res.status, user: res.json()}))
+    .then((res) => {
+      const response = res.status === 200 ? { status: res.status, user: res.json() } : res;
+      return response;
+    })
     .catch((e) => console.log("cant signin with error", e));
 };
 
 export const signup = (body) => {
   return fetch(`${url}signup`, { method: "POST", body: body })
-    .then((res) => res.status)
+    .then((res) => {
+      const response = res.status === 200 ? { status: res.status, user: res.json() } : res;
+      return response;
+    })
     .catch((e) => console.log("cant signup with error", e));
 };
 

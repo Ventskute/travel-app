@@ -4,33 +4,39 @@ const getData = (key, initialValue) => {
   const data = localStorage.getItem(key);
 
   if (!data) {
-    localStorage.setItem(key, initialValue)
+    localStorage.setItem(key, initialValue);
   }
 
   let result = data;
   try {
-    result = JSON.parse(data)
-  }
-  catch {
-    result = data
+    result = JSON.parse(data);
+  } catch {
+    result = data;
   }
 
   return result ? result : initialValue;
 };
 
 const initialState = {
-  locale: getData("lang", "en_US"),
+  locale: getData("lang", "ru_RU"),
   dict: {},
   user: getData("user", null),
-  searchValue: '',
+  searchValue: "",
   authForm: {
     isFormOpen: false,
-    isSignup: true
-  }
+    isSignup: true,
+  },
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case actions.SET_LOCALE: {
+      localStorage.setItem("lang", action.payload);
+      return {
+        ...state,
+        locale: action.payload,
+      };
+    }
     case actions.ADD_LOCALE: {
       return {
         ...state,
@@ -62,9 +68,9 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         authForm: {
           ...state.authForm,
-          ...action.payload
-        }
-      }
+          ...action.payload,
+        },
+      };
     }
     default:
       return state;

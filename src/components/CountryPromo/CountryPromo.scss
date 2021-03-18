@@ -1,12 +1,17 @@
+@import '../../variables.scss';
+
 .country-promo {
   background-color: #f6f6f6;
   margin-bottom: 20px;
 }
 
 .country-promo__wrapper {
-  background-size: cover;
+  background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 40px 0;
+  font-size: 18px;
 
   .container {
     display: flex;
@@ -18,11 +23,19 @@
   }
 }
 
+.card__subtitle {
+  margin-top: 20px;
+}
+
 .country-promo__card {
-  max-width: 700px;
-  background: #ffffff99;
+  width: 70%;
+  background: $color-bg-card;
   padding: 30px;
   margin-right: 20px;
   backdrop-filter: blur(10px);
   text-align: justify;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 }
