@@ -1,64 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import PromoBlock from "../../components/PromoBlock/PromoBlock";
 import Search from "../../components/Search/Search";
 import actions from "../../utils/actions";
-import { getLocaleTxt } from "../../utils/api";
+import { getCountries, getLocaleTxt } from "../../utils/api";
 
 import "./Main.scss";
+import Card from "../../components/Card/Card";
 
 export default function Main() {
-  const { locale, dict, user } = useSelector((state) => state);
+  const { locale, dict, user, searchValue, authForm } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [authForm, setAuthForm] = useState({ isFormOpen: false, isSignup: true });
+
+  const [countries, setCountries] = useState([]);
 
   const setUser = (user) => {
     dispatch({ type: actions.SET_USER, user: user });
   };
-  const logoutUser = () => {
-    dispatch({ type: actions.REMOVE_USER });
-  };
-
-  const openSignupForm = () => {
-    setAuthForm({ ...authForm, isFormOpen: true, isSignup: true });
-  };
-  const openSigninForm = () => {
-    setAuthForm({ ...authForm, isFormOpen: true, isSignup: false });
-  };
   const closeAuthForm = () => {
-    setAuthForm({ ...authForm, isFormOpen: false });
+    dispatch({
+      type: actions.SET_AUTHFORM,
+      payload: { isFormOpen: false }
+    });
   };
 
   useEffect(() => {
     getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
+    getCountries(locale).then((res) => setCountries(res));
   }, []);
 
   return (
     <>
-      <Header>
-        <Search />
-      </Header>
+      <Header />
       { authForm.isFormOpen &&
         <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
       }
       <PromoBlock />
       <main className="main">
-        <div className="container">
-          <ul>
-            <li>
-              <Link to="/Belarus">{dict.BELARUS}</Link>
-            </li>
-            <li>
-              <Link to="/Japan">Japan</Link>
-            </li>
-            <li>
-              <Link to="/Sweden">Sweden</Link>
-            </li>
-          </ul>
+        <h2 className='countries'>{dict.COUNTRIES}</h2>
+        <Search />
+        <div className="container cards-container">
+          {
+            countries.map((el, i) => {
+              if (searchValue === '' ||
+                  el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+                  el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
+              ) {
+                return <Card name={el.name} capital={el.capital.name} image={el.image} key={i}/>
+              }
+            })
+          }
         </div>
       </main>
       <Footer />

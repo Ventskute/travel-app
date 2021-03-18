@@ -34,7 +34,7 @@ export const getCountryOfTheDay = () => {
 
 export const signin = (body) => {
   return fetch(`${url}signin`, { method: "POST", body: body })
-    .then((res) => res.status)
+    .then((res) => ({status: res.status, user: res.json()}))
     .catch((e) => console.log("cant signin with error", e));
 };
 

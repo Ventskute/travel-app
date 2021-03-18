@@ -5,9 +5,11 @@
   position: relative;
   width: 280px;
   height: 35px;
+  margin: 20px auto;
 
   &--input {
     width: 100%;
+    background-color: $color-bg-input;
 
     border-bottom-left-radius: 18px;
     border-top-left-radius: 18px;

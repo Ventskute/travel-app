@@ -58,6 +58,18 @@
     "/countries": {
       "get": {
         "tags": ["countries"],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "language",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "list of countries",
@@ -78,6 +90,18 @@
     "/countries/countryoftheday": {
       "get": {
         "tags": ["all users"],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "language",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "country of the day",
