@@ -7,12 +7,14 @@ function WidgetTime({ timeZoneName }) {
   const [currentDate, setCurrentDate] = React.useState(getCurrentDate());
 
   React.useEffect(() => {
+    setCurrentDate(getCurrentDate());
+
     const update = setInterval(() => {
       setCurrentDate(getCurrentDate());
     }, 1000);
 
     return () => clearInterval(update);
-  }, []);
+  }, [locale]);
 
   function getCurrentDate() {
     const dateOptions = {

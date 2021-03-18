@@ -14,7 +14,7 @@ export default function Weather({ coordinates = [], city }) {
       .then((result) => {
         setWeatherData(result);
       });
-  }, []);
+  }, [locale]);
 
   return (
     <div className="widget weather-widget">

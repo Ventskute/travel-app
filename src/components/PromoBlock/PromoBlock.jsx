@@ -11,6 +11,8 @@ export default function PromoBlock() {
   useEffect(() => {
     getCountryOfTheDay(locale)
       .then((country) => {
+        const image = new Image();
+        image.src = country.promo;
         setCountry(country);
       });
   }, [locale]);

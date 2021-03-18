@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/";
+export const url = "https://travel-app-team-52.herokuapp.com/";
 
 export const getCountries = (lang) => {
   return fetch(`${url}countries?lang=${lang}`)
