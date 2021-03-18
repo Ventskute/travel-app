@@ -24,8 +24,8 @@ export const postAttractionRating = (ISOCode, attractionId, userLogin, score) =>
     });
 };
 
-export const getCountryOfTheDay = () => {
-  return fetch(`${url}countries/countryoftheday`)
+export const getCountryOfTheDay = (lang) => {
+  return fetch(`${url}countries/countryoftheday?lang=${lang}`)
     .then((response) => response.json())
     .catch((e) => {
       console.log("cant get country of the day with error", e);

@@ -6,10 +6,10 @@ import "./PromoBlock.scss";
 
 export default function PromoBlock() {
   const [country, setCountry] = useState(null);
-  const { dict } = useSelector(state => state);
+  const { dict, locale } = useSelector(state => state);
 
   useEffect(() => {
-    getCountryOfTheDay()
+    getCountryOfTheDay(locale)
       .then((country) => {
         setCountry(country);
       });
@@ -17,7 +17,7 @@ export default function PromoBlock() {
 
   return (
     <>
-      <Link className="promo-link" to={`/${country && country.name}`}>
+      <Link className="promo-link" to={`/${country && country.ISOCode}`}>
         <div className="promo" style={{backgroundImage: `url(${country && country.promo})`}}>
           <div className="container">
             <h2 className="title">

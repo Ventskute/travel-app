@@ -19,7 +19,7 @@ export default function App() {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/:countryName" component={Country} />
+          <Route path="/:ISOCode" component={Country} />
           <Route path="/" component={Main} />
         </Switch>
       </Router>

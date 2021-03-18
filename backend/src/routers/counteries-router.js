@@ -16,6 +16,7 @@ const parseCountry = (country, lang) => {
   delete country.lang;
   country.name = name;
   country.capital = {
+    timeZoneName: country.capital.timeZoneName,
     name: capitalName,
     coordinates: capitalCoordinates,
   };

@@ -3,31 +3,45 @@ import { useParams } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
-import Swiper from '../../components/Swiper/Swiper';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
-import Weather from "../../components/Widgets/Weather";
+import GeneralAttractions from '../../components/GeneralAttractions/GeneralAttractions';
+import YouTubeVideo from '../../components/Video/YouTubeVideo';
 
 import data from '../../components/Map/blr.json';
 
-import './Country.scss'
+import './Country.scss';
+import { getCountry } from '../../utils/api';
+import { useSelector } from 'react-redux';
 
 function Country() {
-  let { countryName } = useParams();
+  const { locale } = useSelector(state => state);
+  const [countryState, setCountryState] = React.useState(null);
+
+  let { ISOCode } = useParams();
+
+  React.useEffect(() => {
+    getCountry(locale, ISOCode)
+      .then((res) => setCountryState(res))
+  }, []);
 
   return (
     <div className="country">
       <Header />
-      <h2>Country {countryName}</h2>
-      <Weather />
-      <section className="country-promo">
-        <CountryPromo />
-      </section>
-      <section className="country-slider">
-        <div className="wrapper country-slider__wrapper">
-          <Swiper />
-        </div>
-      </section>
-      <Map data={data} />
+      {countryState && (
+        <React.Fragment>
+          <CountryPromo countryState={countryState} />
+          <section className="attractions">
+            <GeneralAttractions countryState={countryState} />
+          </section>
+          <Map data={data} />
+          <section className="video">
+            <div className="video-wrapper container" style={{ backgroundImage: `url(${countryState.promo})` }}>
+              <h2 className="video__title">{countryState.name}</h2>
+              <YouTubeVideo />
+            </div>
+          </section>
+        </React.Fragment>
+      )}
       <Footer />
     </div>
   );

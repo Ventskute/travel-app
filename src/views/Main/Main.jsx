@@ -28,7 +28,7 @@ export default function Main() {
   };
 
   useEffect(() => {
-    getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
+    getLocaleTxt(locale).then((res) => {console.log(res);dispatch({ type: actions.ADD_LOCALE, payload: res })});
     getCountries(locale).then((res) => setCountries(res));
   }, []);
 
@@ -43,15 +43,16 @@ export default function Main() {
         <h2 className="countries">{dict.COUNTRIES}</h2>
         <Search />
         <div className="container cards-container">
-          {countries.map((el, i) => {
-            if (
-              searchValue === "" ||
-              el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-              el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
-            ) {
-              return <Card name={el.name} capital={el.capital.name} image={el.image} key={i} />;
-            }
-          })}
+          {
+            countries.map((el, i) => {
+              if (searchValue === '' ||
+                  el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+                  el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
+              ) {
+                return <Card name={el.name} capital={el.capital.name} link={el.ISOCode} image={el.image} key={i}/>
+              }
+            })
+          }
         </div>
       </main>
       <Footer />
