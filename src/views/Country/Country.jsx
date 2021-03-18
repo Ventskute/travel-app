@@ -24,7 +24,7 @@ function Country() {
     getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
     getCountry(locale, ISOCode)
       .then((res) => setCountryState(res))
-  }, []);
+  }, [locale]);
 
   return (
     <div className="country">

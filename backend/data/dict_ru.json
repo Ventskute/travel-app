@@ -22,7 +22,9 @@
   "NAME_TAKEN": "Это имя уже занято",
   "NAME_INCORRECT": "Имя или пароль неверны",
   "LOGIN_RATE_MESSAGE": "Войдите, чтобы поставить оценку!",
-  "MY_RATING": "Мой рейтинг",
+  "MY_RATING": "Моя оценка",
+  "SHOW_ALL_RATINGS": "Показать все оценки",
+  "HIDE_ALL_RATINGS": "Скрыть все оценки",
   "TOTAL": "Всего",
   "TOTAL_MESSAGE": "Голосов нету! Будь первым!",
   "ADD_AVATAR": "Выбрать аватар"

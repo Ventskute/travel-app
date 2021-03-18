@@ -29,7 +29,7 @@ function AttractionsRating({ currentImage, countryState }) {
 
   useEffect(() => {
     setRating(0);
-    console.log(attractions[currentImage].ratings);
+
     if (attractions[currentImage].ratings) {
       attractions[currentImage].ratings.map((el) => {
         if (user && el.user.login === user.login) {
@@ -93,7 +93,7 @@ function AttractionsRating({ currentImage, countryState }) {
         <button
           className={`button button__show-all-ratings`}
           onClick={() => (!showAll ? setShowAll(true) : setShowAll(false))}>
-          {!showAll ? `show all ratings` : `close all ratings`}
+          {!showAll ? dict.SHOW_ALL_RATINGS : dict.HIDE_ALL_RATINGS}
         </button>
         {showAll && <AllUsersRatings ratings={attractions[currentImage].ratings} />}
       </>}

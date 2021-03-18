@@ -23,6 +23,8 @@
   "NAME_INCORRECT": "Name or password is incorrect",
   "LOGIN_RATE_MESSAGE": "Log in to rate this!",
   "MY_RATING": "My rating",
+  "SHOW_ALL_RATINGS": "Show all ratings",
+  "HIDE_ALL_RATINGS": "Hide all ratings",
   "TOTAL": "Total",
   "TOTAL_MESSAGE": "There are no voices! Be the first!",
   "ADD_AVATAR": "Choose avatar"
