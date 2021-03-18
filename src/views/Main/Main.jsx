@@ -23,11 +23,12 @@ export default function Main() {
 
   return (
     <>
-      <Header />
+      <Header>
+        <Search />
+      </Header>
       <PromoBlock />
       <main className="main">
         <h2 className="countries">{dict.COUNTRIES}</h2>
-        <Search />
         <div className="container cards-container">
           {
             countries.map((el, i) => {

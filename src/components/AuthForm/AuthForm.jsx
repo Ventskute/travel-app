@@ -13,8 +13,6 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
   const [loginValue, setLoginValue] = useState("");
   const [loginPlaceHolder, setLoginPlaceHolder] = useState(dict.NAME);
 
-  // const form = useRef(null);
-
   const reader = new FileReader();
   reader.onload = (e) => {
     setImgUrl(e.target.result);
@@ -53,7 +51,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
     <div className="auth-modal" onClick={closeForm}>
       <div className="auth-form-container">
         <div className="close" onClick={closeForm}>X</div>
-        <h2 className="auth-form--title">{isSignup ? "Signup" : "Signin"} form</h2>
+        <h2 className="auth-form--title">{isSignup ? dict.SIGNUP : dict.LOGIN}</h2>
         <form className="auth-form" onSubmit={submit}>
           <input
             name="login"

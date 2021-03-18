@@ -18,7 +18,7 @@ const getData = (key, initialValue) => {
 };
 
 const initialState = {
-  locale: getData("lang", "en_US"),
+  locale: getData("lang", "ru_RU"),
   dict: {},
   user: getData("user", null),
   searchValue: "",

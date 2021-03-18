@@ -21,5 +21,9 @@
   "PASSWORD": "Password",
   "NAME_TAKEN": "This name was already taken",
   "NAME_INCORRECT": "Name or password is incorrect",
+  "LOGIN_RATE_MESSAGE": "Log in to rate this!",
+  "MY_RATING": "My rating",
+  "TOTAL": "Total",
+  "TOTAL_MESSAGE": "There are no voices! Be the first!",
   "ADD_AVATAR": "Choose avatar"
 }
