@@ -7,8 +7,6 @@ import CountryPromo from "../../components/CountryPromo/CountryPromo";
 import GeneralAttractions from "../../components/GeneralAttractions/GeneralAttractions";
 import YouTubeVideo from "../../components/Video/YouTubeVideo";
 
-import data from "../../components/Map/blr.json";
-
 import './Country.scss';
 import { getCountry, getLocaleTxt } from '../../utils/api';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,7 +33,7 @@ function Country() {
         <React.Fragment>
           <CountryPromo countryState={countryState} />
           <GeneralAttractions countryState={countryState} />
-          <Map data={data} />
+          <Map data={countryState} />
           <section className="video">
             <div
               className="video-wrapper container"

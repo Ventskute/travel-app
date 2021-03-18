@@ -5,9 +5,8 @@ import { YMaps, Map as YMap, FullscreenControl, GeoObject, TypeSelector, Placema
 
 import './Map.scss';
 
-export default function Map(props) {
+export default function Map({ data }) {
   const { locale } = useSelector(state => state);
-  const { data } = props;
 
   return (
     <div className="wrapper map-wrapper">
@@ -22,7 +21,10 @@ export default function Map(props) {
         width='100%'
         height='100%'
         className='map'
-        defaultState={data}
+        defaultState={{
+          center: data.capital.coordinates,
+          zoom: data.zoom
+        }}
         defaultOptions={{
           autoFitToViewport: 'always',
           exitFullscreenByEsc: true,
@@ -31,22 +33,25 @@ export default function Map(props) {
       >
         <FullscreenControl/>
         <Placemark
-          geometry={data.center}
+          geometry={data.capital.coordinates}
           properties={{
-            iconCaption: data.capital,
+            iconCaption: data.capital.name,
           }}
           options={{
             preset: 'islands#redDotIconWithCaption'
           }}
         />
-        <Polygon
-          geometry={data.geometry}
-          options={{
-            fillColor: '#FF000011',
-            strokeColor: '#FF0000',
-            strokeWidth: 5
-          }}
-        />
+        { data.geometry && data.geometry.map(poly => (
+          <Polygon
+            geometry={poly}
+            options={{
+              fillColor: '#FF000011',
+              strokeColor: '#FF0000',
+              strokeWidth: 5
+            }}
+          />
+        ))
+        }
         <TypeSelector />
       </YMap>
     </YMaps>

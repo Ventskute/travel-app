@@ -7,7 +7,6 @@ import ava3 from '../../assets/img/slider-img3.jpeg';
 
 function AttractionsRating({ currentImage, countryState }) {
   //временные данные (потом возьмем с бэка)
-  console.log(countryState)
   const [ratings, setratings] = React.useState([
     {
       score: 0,
