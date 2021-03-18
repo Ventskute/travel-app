@@ -5,7 +5,7 @@ import { signin, signup } from "../../utils/api";
 import "./AuthForm.scss";
 
 const AuthForm = ({ isSignup, setUser, closeForm }) => {
-  const { dict } = useSelector(state => state);
+  const { dict } = useSelector((state) => state);
 
   const [imgUrl, setImgUrl] = useState(
     "https://www.pinclipart.com/picdir/big/15-154296_gender-neutral-user-account-icon-png-clipart.png"
@@ -13,7 +13,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
   const [loginValue, setLoginValue] = useState("");
   const [loginPlaceHolder, setLoginPlaceHolder] = useState("name");
 
-  const form = useRef(null);
+  // const form = useRef(null);
 
   const reader = new FileReader();
   reader.onload = (e) => {
@@ -22,11 +22,10 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const data = new FormData(form.current);
+    const data = new FormData(e.target);
     const res = isSignup ? await signup(data) : await signin(data);
     const resStatus = await res.status;
     const resUser = await res.user;
-
     if (resStatus === 403) {
       setLoginValue("");
       isSignup
@@ -36,11 +35,15 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
       if (resUser) {
         setUser({
           login: loginValue,
-          avatar: `http://localhost:3000/${resUser.avatar}` });
+          avatar: `${resUser.avatar}`,
+        });
       } else {
         setUser({
           login: loginValue,
-          avatar: `http://localhost:3000/statics/users/${loginValue.toLowerCase()}${imgUrl.substr(imgUrl.lastIndexOf("."))}` });
+          avatar: `http://localhost:3000/statics/users/${loginValue.toLowerCase()}${imgUrl.substr(
+            imgUrl.lastIndexOf(".")
+          )}`,
+        });
       }
       closeForm();
     }
@@ -49,8 +52,11 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
   return (
     <div className="auth-modal">
       <div className="auth-form-container">
+        <button className="auth-form--close-button" onClick={closeForm}>
+          close
+        </button>
         <h2 className="auth-form--title">{isSignup ? "Signup" : "Signin"} form</h2>
-        <form className="auth-form" ref={form} onSubmit={submit}>
+        <form className="auth-form" onSubmit={submit}>
           <input
             name="login"
             type="text"
@@ -62,9 +68,18 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
               setLoginValue(e.target.value);
             }}
           />
-          <input type="password" name="password" className="auth-form--input" required placeholder="password" />
+          <input
+            type="password"
+            name="password"
+            className="auth-form--input"
+            required
+            placeholder="password"
+          />
           {isSignup && (
-            <label className="add-avatar-btn auth-form--input_file" style={{backgroundImage: `url(${imgUrl})`}}>
+            <label
+              className="add-avatar-btn auth-form--input_file"
+              style={{ backgroundImage: `url(${imgUrl})` }}
+            >
               <input
                 type="file"
                 accept="image/*"
@@ -80,7 +95,6 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
         </form>
       </div>
     </div>
-
   );
 };
 

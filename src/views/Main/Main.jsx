@@ -23,7 +23,7 @@ export default function Main() {
   const closeAuthForm = () => {
     dispatch({
       type: actions.SET_AUTHFORM,
-      payload: { isFormOpen: false }
+      payload: { isFormOpen: false },
     });
   };
 
@@ -35,12 +35,12 @@ export default function Main() {
   return (
     <>
       <Header />
-      { authForm.isFormOpen &&
+      {authForm.isFormOpen && (
         <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
-      }
+      )}
       <PromoBlock />
       <main className="main">
-        <h2 className='countries'>{dict.COUNTRIES}</h2>
+        <h2 className="countries">{dict.COUNTRIES}</h2>
         <Search />
         <div className="container cards-container">
           {

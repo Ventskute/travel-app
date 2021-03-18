@@ -4,15 +4,14 @@ const getData = (key, initialValue) => {
   const data = localStorage.getItem(key);
 
   if (!data) {
-    localStorage.setItem(key, initialValue)
+    localStorage.setItem(key, initialValue);
   }
 
   let result = data;
   try {
-    result = JSON.parse(data)
-  }
-  catch {
-    result = data
+    result = JSON.parse(data);
+  } catch {
+    result = data;
   }
 
   return result ? result : initialValue;
@@ -22,11 +21,11 @@ const initialState = {
   locale: getData("lang", "en_US"),
   dict: {},
   user: getData("user", null),
-  searchValue: '',
+  searchValue: "",
   authForm: {
     isFormOpen: false,
-    isSignup: true
-  }
+    isSignup: true,
+  },
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -62,9 +61,9 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         authForm: {
           ...state.authForm,
-          ...action.payload
-        }
-      }
+          ...action.payload,
+        },
+      };
     }
     default:
       return state;

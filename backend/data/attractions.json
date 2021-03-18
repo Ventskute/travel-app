@@ -2,7 +2,7 @@
   {
     "id": "a343e7a5-01d7-44e7-9b89-fc2f93dcd9ae",
     "countryISO": "CAN",
-    "image": "",
+    "image": "statics/countries/canada/attractions/1-The-Parliament-of-Canada.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -23,7 +23,7 @@
   {
     "id": "e641cd04-4a4f-4c69-a609-1ce7f97c6cee",
     "countryISO": "CAN",
-    "image": "",
+    "image": "statics/countries/canada/attractions/2-Niagara-Falls.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -44,7 +44,7 @@
   {
     "id": "477d2513-aa59-417f-96b9-9d4f3492cf64",
     "countryISO": "CAN",
-    "image": "",
+    "image": "statics/countries/canada/attractions/3Château_Frontenac_02.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -65,13 +65,9 @@
   {
     "id": "d11371f2-7760-4ae5-9340-199e73b1de54",
     "countryISO": "CAN",
-    "image": "",
+    "image": "statics/countries/canada/attractions/5Saint-Josephs-Oratory-of-Mount-Royal-.jpg",
     "rating": null,
-    "ratings": [
-      { "score": 3, "userLogin": "vasya322" },
-      { "score": 4, "userLogin": "vasya32" },
-      { "score": 5, "userLogin": "vasya21" }
-    ],
+    "ratings": null,
     "lang": {
       "en_US": {
         "name": "St. Joseph's Oratory",
@@ -90,7 +86,7 @@
   {
     "id": "35ef0303-077c-4907-861b-e235342dde71",
     "countryISO": "BY",
-    "image": "",
+    "image": "statics/countries/belarus/attractions/1Несвиж.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -111,7 +107,7 @@
   {
     "id": "6dde3d9d-8306-4bf0-ac54-fa2aca51aa17",
     "countryISO": "BY",
-    "image": "",
+    "image": "statics/countries/belarus/attractions/2Мир_1.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -132,7 +128,7 @@
   {
     "id": "8bedd6af-e8b3-4620-8d48-69d74eed48d7",
     "countryISO": "BY",
-    "image": "",
+    "image": "statics/countries/belarus/attractions/3Church-of-Saints-Simon-and-Helena.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -153,7 +149,7 @@
   {
     "id": "098565d8-9bde-4055-89ae-4159f6e5cf13",
     "countryISO": "BY",
-    "image": "",
+    "image": "statics/countries/belarus/attractions/4 Chatyn.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -174,7 +170,7 @@
   {
     "id": "12e91f5c-64cb-4875-9dd9-2f4615dcd6b0",
     "countryISO": "BY",
-    "image": "",
+    "image": "statics/countries/belarus/attractions/5St.-Francis-Xavier-Cathedral.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -195,7 +191,7 @@
   {
     "id": "f68c9cb8-331e-405a-96f1-4e0dd79d846f",
     "countryISO": "BY",
-    "image": "",
+    "image": "statics/countries/belarus/attractions/6Białowieża-Forest-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -216,7 +212,7 @@
   {
     "id": "9c879f80-cc66-4ddf-81c2-e263909a549c",
     "countryISO": "ROU",
-    "image": "",
+    "image": "statics/countries/romania/attractions/1-Palace_of_the_Parliament_in_Bacharest.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -237,7 +233,7 @@
   {
     "id": "e372c117-10f0-4279-845c-9b4cf4850949",
     "countryISO": "ROU",
-    "image": "",
+    "image": "statics/countries/romania/attractions/2-bran_castle.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -258,7 +254,7 @@
   {
     "id": "b0ed54a9-5a40-4599-8b26-9179b90a7f55",
     "countryISO": "ROU",
-    "image": "",
+    "image": "statics/countries/romania/attractions/3-Black_Church_in_Bra.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -279,7 +275,7 @@
   {
     "id": "1578846c-e7f1-41ae-adba-b8ca02e90c5f",
     "countryISO": "ROU",
-    "image": "",
+    "image": "statics/countries/romania/attractions/4 Peles_Castle.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -300,7 +296,7 @@
   {
     "id": "45d92b46-dde8-4583-9565-ef329f7f1bf2",
     "countryISO": "ROU",
-    "image": "",
+    "image": "statics/countries/romania/attractions/5Romanian_Athenaeum.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -321,7 +317,7 @@
   {
     "id": "6b0c6a27-e724-4ab5-8eb4-a69bc15a4bd9",
     "countryISO": "ROU",
-    "image": "",
+    "image": "statics/countries/romania/attractions/6The_Transfagara_an_Highway.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -342,7 +338,7 @@
   {
     "id": "438e24c7-648a-48e2-b657-3ad899945879",
     "countryISO": "AUS",
-    "image": "",
+    "image": "statics/countries/australia/attractions/1-Lake-Hillier.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -363,7 +359,7 @@
   {
     "id": "218d02c0-477e-42bc-b205-1aacdfb15f1a",
     "countryISO": "AUS",
-    "image": "",
+    "image": "statics/countries/australia/attractions/2Uluru-mountain.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -384,7 +380,7 @@
   {
     "id": "c98c9eb7-41cf-412a-be7b-589bafa8e49f",
     "countryISO": "AUS",
-    "image": "",
+    "image": "statics/countries/australia/attractions/3Sydney-opera-house-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -405,7 +401,7 @@
   {
     "id": "a7edd335-6e1f-4cc4-99fc-f9e8c3092c3c",
     "countryISO": "AUS",
-    "image": "",
+    "image": "statics/countries/australia/attractions/5Wave-Rock-e.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -426,7 +422,7 @@
   {
     "id": "e395d6bd-eab7-4012-9223-f4e703755263",
     "countryISO": "AUS",
-    "image": "",
+    "image": "statics/countries/australia/attractions/6St._Pauls_Cathedral_in_Melbourne.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -447,7 +443,7 @@
   {
     "id": "3650befa-24b4-469b-95ef-2d49b3cfd766",
     "countryISO": "FRA",
-    "image": "",
+    "image": "statics/countries/france/attractions/1-The-Eiffel-Tower.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -468,7 +464,7 @@
   {
     "id": "ef631974-c3be-476b-a649-cbef9bfb3c7d",
     "countryISO": "FRA",
-    "image": "",
+    "image": "statics/countries/france/attractions/2-The-Louvre.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -489,7 +485,7 @@
   {
     "id": "b4c7229d-df01-4d49-bbc5-8b80aac75d9e",
     "countryISO": "FRA",
-    "image": "",
+    "image": "statics/countries/france/attractions/3The-Dune-of-Pilat-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -510,7 +506,7 @@
   {
     "id": "5af599ab-6e21-4231-8c6d-fd67855f3ea8",
     "countryISO": "FRA",
-    "image": "",
+    "image": "statics/countries/france/attractions/4The-Mont-Saint-Michel-Abbey.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -531,7 +527,7 @@
   {
     "id": "95b2a407-7919-481c-b99e-2d5fb7d8adb4",
     "countryISO": "FRA",
-    "image": "",
+    "image": "statics/countries/france/attractions/5Annecy_City-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -552,7 +548,7 @@
   {
     "id": "995725ed-61e4-42c0-b671-eeb955c8e38c",
     "countryISO": "FRA",
-    "image": "",
+    "image": "statics/countries/france/attractions/6Wine-Museum-Bonn.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -573,7 +569,7 @@
   {
     "id": "6aac96eb-288d-46b9-a673-f236693ebfb0",
     "countryISO": "CZE",
-    "image": "",
+    "image": "statics/countries/czech_republic/attractions/1-Prague-Castle.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -594,7 +590,7 @@
   {
     "id": "73ff3555-2850-4d02-9e54-0f1d77718279",
     "countryISO": "CZE",
-    "image": "",
+    "image": "statics/countries/czech_republic/attractions/2-The-Charles-Bridge.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -615,7 +611,7 @@
   {
     "id": "c0ef6907-f667-4ae7-94bd-b1ed683ef23c",
     "countryISO": "CZE",
-    "image": "",
+    "image": "statics/countries/czech_republic/attractions/3The-Metropolitan-Cathedral-of-Saints-Vitus-Wenceslaus-and-Adalbert-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -636,7 +632,7 @@
   {
     "id": "9c6d76e9-79b0-4874-aed9-be391d624b76",
     "countryISO": "CZE",
-    "image": "",
+    "image": "statics/countries/czech_republic/attractions/4Koneprusy-caves-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -657,7 +653,7 @@
   {
     "id": "184e9422-df0e-4e9e-95d5-1822490d0127",
     "countryISO": "CZE",
-    "image": "",
+    "image": "statics/countries/czech_republic/attractions/5-Mala-Strana-district.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -678,7 +674,7 @@
   {
     "id": "184e9422-df0e-4e9e-95d5-1822490d0127",
     "countryISO": "CZE",
-    "image": "",
+    "image": "statics/countries/czech_republic/attractions/6City_Museum_Telc-Telc.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -699,7 +695,7 @@
   {
     "id": "eb2ac400-9f15-49f2-9149-6039eb70da45",
     "countryISO": "SWE",
-    "image": "",
+    "image": "statics/countries/sweden/attraction/1-The_Vadstena_castle-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -720,7 +716,7 @@
   {
     "id": "5c6b59a0-6466-4275-b67f-064cd038d7cc",
     "countryISO": "SWE",
-    "image": "",
+    "image": "statics/countries/sweden/attraction/2-The_Uppsala_Cathedral.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -741,7 +737,7 @@
   {
     "id": "f9d59fd7-ee2d-4ed5-b640-48c1b1aec930",
     "countryISO": "SWE",
-    "image": "",
+    "image": "statics/countries/sweden/attraction/3-The_Oresund_Bridge.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -762,7 +758,7 @@
   {
     "id": "5b08a8e4-4eb9-410a-9062-a8a598dfa9b0",
     "countryISO": "SWE",
-    "image": "",
+    "image": "statics/countries/sweden/attraction/4Moderna_Museet_in_Sweden.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -783,7 +779,7 @@
   {
     "id": "87b4263c-8b4a-4a9c-883d-0540829bec35",
     "countryISO": "SWE",
-    "image": "",
+    "image": "statics/countries/sweden/attraction/5-Visby.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -804,7 +800,7 @@
   {
     "id": "a385aebe-dd23-4c07-b27c-2dcfedb54f37",
     "countryISO": "SWE",
-    "image": "",
+    "image": "statics/countries/sweden/attraction/6he_Vasa_Museum.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -825,7 +821,7 @@
   {
     "id": "de72cb1a-0f85-42b9-bee4-275a35e3ac02",
     "countryISO": "JPN",
-    "image": "",
+    "image": "statics/countries/japan/attractions/1Sagano-bamboo-grove.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -846,7 +842,7 @@
   {
     "id": "eb7a3579-d0e0-457f-966c-ad1bc6e41ac0",
     "countryISO": "JPN",
-    "image": "",
+    "image": "statics/countries/japan/attractions/2Fuji-mountain.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -867,7 +863,7 @@
   {
     "id": "8e72fb25-dce4-4998-85f1-43045fd1d76b",
     "countryISO": "JPN",
-    "image": "",
+    "image": "statics/countries/japan/attractions/3Химедзи (остров Хонсю).jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -888,7 +884,7 @@
   {
     "id": "9c0f5ef3-6092-4675-87fd-95a88b10d12c",
     "countryISO": "JPN",
-    "image": "",
+    "image": "statics/countries/japan/attractions/4 Мацумото.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -909,7 +905,7 @@
   {
     "id": "a500bfd4-7ed8-4f33-a39b-a1a47be34037",
     "countryISO": "JPN",
-    "image": "",
+    "image": "statics/countries/japan/attractions/5Kusatsu-Hot-Springs-Town-.jpg",
     "rating": null,
     "ratings": null,
     "lang": {
@@ -930,7 +926,7 @@
   {
     "id": "71b1d992-52e1-48a1-bf5d-75f56cd56c4d",
     "countryISO": "JPN",
-    "image": "",
+    "image": "statics/countries/japan/attractions/6 Музей аниме-студии Гибли в Токио.jpg",
     "rating": null,
     "ratings": null,
     "lang": {

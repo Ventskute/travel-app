@@ -5,22 +5,22 @@ import "./Footer.scss";
 
 const developers = [
   {
-    name: 'Viktoryia Ventskute',
-    link: 'https://github.com/Ventskute',
+    name: "Viktoryia Ventskute",
+    link: "https://github.com/Ventskute",
   },
   {
-    name: 'Andrew Murashko',
-    link: 'https://github.com/Andrewmurashko',
+    name: "Andrew Murashko",
+    link: "https://github.com/Andrewmurashko",
   },
   {
-    name: 'Aleksei Kupchinskii',
-    link: 'https://github.com/AlekseiBY',
+    name: "Aleksei Kupchinskii",
+    link: "https://github.com/AlekseiBY",
   },
   {
-    name: 'Tatsiana Slapik',
-    link: 'https://github.com/TatsianaSlapik',
+    name: "Tatsiana Slapik",
+    link: "https://github.com/TatsianaSlapik",
   },
-]
+];
 
 export default function Footer() {
   return (
@@ -28,18 +28,16 @@ export default function Footer() {
       <footer>
         <div className="container">
           <ul>
-          {
-            developers.map((el, i) => (
+            {developers.map((el, i) => (
               <li key={i}>
-                <a href={el.link} target='_blank'>
+                <a href={el.link} target="_blank">
                   {el.name}
-                  <img src={GitHub} alt='GitHub' className='github_logo'/>
+                  <img src={GitHub} alt="GitHub" className="github_logo" />
                 </a>
               </li>
-            ))
-          }
+            ))}
           </ul>
-          <a className="rss" href="https://rs.school/react/" target='_blank'>
+          <a className="rss" href="https://rs.school/react/" target="_blank">
             <span className="rss-year">'21</span>
           </a>
         </div>
