@@ -1,17 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { YMaps, Map as YMap, FullscreenControl, GeoObject, TypeSelector, Placemark, Polygon } from 'react-yandex-maps';
 
 import './Map.scss';
 
 export default function Map(props) {
+  const { locale } = useSelector(state => state);
   const { data } = props;
 
   return (
     <div className="wrapper map-wrapper">
     <YMaps
       query={{
-        lang: 'en_US',
+        lang: locale,
         coordorder: 'longlat',
         apikey: "6a7ecd4e-5dac-4c29-8e69-110f766bb06c"
       }}

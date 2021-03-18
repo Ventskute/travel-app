@@ -38,10 +38,10 @@ function AttractionsRating({ currentImage, countryState }) {
   const [totalRating, setTotalRating] = React.useState(attractions.rating || 0);
   const rateArr = Array(5).fill(null);
   const [showAll, setShowAll] = React.useState(false);
-  console.log(countryState.attractions[currentImage].ratings)
+
   React.useEffect(() => {
     // проверка объекта проголосовавших на соответствие текущему пользователю и взятие его рейтинга, будет брать рейтинг после каждой смены картинки
-    countryState.attractions[currentImage].ratings.map((el) => {
+    countryState.attractions[currentImage].rating && countryState.attractions[currentImage].rating.map((el) => {
       if (el.userLogin === currUser) {
         setRating(el.score);
       }
@@ -51,7 +51,7 @@ function AttractionsRating({ currentImage, countryState }) {
   const getRating = (index) => {
     setRating(index + 1);
     // сдесь будет post рейтинга на бэк
-    // 
+    //
     // fetch(`http://localhost:8000/countries/CAN/dhuaggwyt?login=vasya322&score=${}`, {})
     ratings.map((el) => {
       if (el.user.login === currUser) {
@@ -62,8 +62,8 @@ function AttractionsRating({ currentImage, countryState }) {
 
   return (
     <div className="info">
-      <h3 className="info__title">{attractions[currentImage].name}</h3>
-      <div className="info__description">{attractions[currentImage].description}</div>
+      <h3 className="info__title">{attractions[currentImage] && attractions[currentImage].name}</h3>
+      <div className="info__description">{attractions[currentImage] && attractions[currentImage].description}</div>
 
       <div className={`attractions-rating`}>
         <button

@@ -1,18 +1,28 @@
 .country-promo {
-    background-color: #f6f6f6;
-    margin-bottom: 20px;
-  }
-  
-  .country-promo__wrapper {
+  background-color: #f6f6f6;
+  margin-bottom: 20px;
+}
+
+.country-promo__wrapper {
+  background-size: cover;
+  background-position: center;
+  padding: 40px 0;
+
+  .container {
     display: flex;
     justify-content: space-between;
-    // padding: 30px 70px;
-    margin-bottom: 20px;
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+    }
   }
-  
-  .country-promo__card {
-    width: 700px;
-    border-right: solid 1px;
-  }
-  
- 
+}
+
+.country-promo__card {
+  max-width: 700px;
+  background: #ffffff99;
+  padding: 30px;
+  margin-right: 20px;
+  backdrop-filter: blur(10px);
+  text-align: justify;
+}

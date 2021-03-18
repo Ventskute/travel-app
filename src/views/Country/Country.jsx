@@ -6,41 +6,37 @@ import Map from '../../components/Map/Map';
 import CountryPromo from '../../components/CountryPromo/CountryPromo';
 import GeneralAttractions from '../../components/GeneralAttractions/GeneralAttractions';
 import YouTubeVideo from '../../components/Video/YouTubeVideo';
-import img from '../../assets/img/player-background.jpeg';
 
 import data from '../../components/Map/blr.json';
 
 import './Country.scss';
+import { getCountry } from '../../utils/api';
+import { useSelector } from 'react-redux';
 
 function Country() {
+  const { locale } = useSelector(state => state);
   const [countryState, setCountryState] = React.useState(null);
-  const backEndPath = 'localhost:3000';
-  let { countryName } = useParams();
-  console.log(countryState);
+
+  let { ISOCode } = useParams();
+
   React.useEffect(() => {
-    fetch(`http://${backEndPath}/countries/CAN`)
-      .then((res) => res.json())
-      .then((data) => setCountryState(data));
+    getCountry(locale, ISOCode)
+      .then((res) => setCountryState(res))
   }, []);
 
   return (
     <div className="country">
       <Header />
-      <h2>Country {countryName}</h2>
       {countryState && (
         <React.Fragment>
-          <section className="country-promo">
-            <CountryPromo countryState={countryState} />
-          </section>
+          <CountryPromo countryState={countryState} />
           <section className="attractions">
             <GeneralAttractions countryState={countryState} />
           </section>
-          <section className="map-full-screen">
-            <Map data={data} />
-          </section>
+          <Map data={data} />
           <section className="video">
-            <div className="video-wrapper container" style={{ backgroundImage: `url(${img})` }}>
-              <h2 className="video__title">See Dubai from the sky</h2>
+            <div className="video-wrapper container" style={{ backgroundImage: `url(${countryState.promo})` }}>
+              <h2 className="video__title">{countryState.name}</h2>
               <YouTubeVideo />
             </div>
           </section>

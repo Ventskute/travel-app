@@ -8,6 +8,11 @@
 .widget {
   margin-bottom: 15px;
   padding: 20px;
-  border: solid 2px black;
-  border-radius: 8px;
+  background: #ffffff99;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
