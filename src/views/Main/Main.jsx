@@ -16,7 +16,6 @@ export default function Main() {
 
   const [countries, setCountries] = useState([]);
 
-
   useEffect(() => {
     getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
     getCountries(locale).then((res) => setCountries(res));
