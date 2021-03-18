@@ -6,7 +6,7 @@ import actions from "../../utils/actions";
 import "./Header.scss";
 
 export default function Header({ children }) {
-  const { user } = useSelector(state => state);
+  const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const logo = useRef(null);
@@ -17,13 +17,13 @@ export default function Header({ children }) {
   const openSignupForm = () => {
     dispatch({
       type: actions.SET_AUTHFORM,
-      payload: { isFormOpen: true, isSignup: true }
+      payload: { isFormOpen: true, isSignup: true },
     });
   };
   const openSigninForm = () => {
     dispatch({
       type: actions.SET_AUTHFORM,
-      payload: { isFormOpen: true, isSignup: false }
+      payload: { isFormOpen: true, isSignup: false },
     });
   };
 
@@ -33,35 +33,49 @@ export default function Header({ children }) {
       let mouseY = e.pageY;
       let traX = (8 * mouseX) / 570 + 0;
       let traY = (8 * mouseY) / 570 + 50;
-      logo.current.style.backgroundPosition = `${traX}% ${traY}%`;
+      if (logo.current) {
+        logo.current.style.backgroundPosition = `${traX}% ${traY}%`;
+      }
     });
   }, []);
 
   return (
-      <header>
-        <div className="container">
-          <Link to="/">
-            <p className="logo_title" ref={logo}>TRAVEL APP</p>
-          </Link>
+    <header>
+      <div className="container">
+        <Link to="/">
+          <p className="logo_title" ref={logo}>
+            TRAVEL APP
+          </p>
+        </Link>
 
-          <div className="login-buttons">
-            { !user && <>
-              <button className="login-button" onClick={openSignupForm}>Sign up</button>
-              <button className="login-button" onClick={openSigninForm}>Log in</button>
-            </>}
-            { user && <>
-              { user.avatar &&
+        <div className="login-buttons">
+          {!user && (
+            <>
+              <button className="login-button" onClick={openSignupForm}>
+                Sign up
+              </button>
+              <button className="login-button" onClick={openSigninForm}>
+                Log in
+              </button>
+            </>
+          )}
+          {user && (
+            <>
+              {user.avatar && (
                 <div className="avatar-wrapper">
-                  <img src={user.avatar}/>
+                  <img src={user.avatar} />
                 </div>
-              }
+              )}
               <h3 className="login-name">{user.login}</h3>
-              <button className="login-button" onClick={logoutUser}>Log out</button>
-            </>}
-          </div>
-
-          {children && children}
+              <button className="login-button" onClick={logoutUser}>
+                Log out
+              </button>
+            </>
+          )}
         </div>
-      </header>
+
+        {children && children}
+      </div>
+    </header>
   );
 }

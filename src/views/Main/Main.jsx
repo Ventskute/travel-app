@@ -23,7 +23,7 @@ export default function Main() {
   const closeAuthForm = () => {
     dispatch({
       type: actions.SET_AUTHFORM,
-      payload: { isFormOpen: false }
+      payload: { isFormOpen: false },
     });
   };
 
@@ -35,24 +35,23 @@ export default function Main() {
   return (
     <>
       <Header />
-      { authForm.isFormOpen &&
+      {authForm.isFormOpen && (
         <AuthForm isSignup={authForm.isSignup} setUser={setUser} closeForm={closeAuthForm} />
-      }
+      )}
       <PromoBlock />
       <main className="main">
-        <h2 className='countries'>{dict.COUNTRIES}</h2>
+        <h2 className="countries">{dict.COUNTRIES}</h2>
         <Search />
         <div className="container cards-container">
-          {
-            countries.map((el, i) => {
-              if (searchValue === '' ||
-                  el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-                  el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
-              ) {
-                return <Card name={el.name} capital={el.capital.name} image={el.image} key={i}/>
-              }
-            })
-          }
+          {countries.map((el, i) => {
+            if (
+              searchValue === "" ||
+              el.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+              el.capital.name.toLowerCase().includes(searchValue.toLowerCase())
+            ) {
+              return <Card name={el.name} capital={el.capital.name} image={el.image} key={i} />;
+            }
+          })}
         </div>
       </main>
       <Footer />
