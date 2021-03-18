@@ -8,7 +8,7 @@ export default function Weather({ city }) {
 
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${locale}&appid=b230d199aa8e2ebca5c616c59bde9699&units=metric`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${locale.substr(0, 2)}&appid=b230d199aa8e2ebca5c616c59bde9699&units=metric`,
     )
       .then((res) => res.json())
       .then((result) => {

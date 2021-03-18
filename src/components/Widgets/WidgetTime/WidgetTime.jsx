@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './WidgetTime.scss';
 
-function WidgetTime({ timeZoneName, lang = 'en-US' }) {
-  const { dict } = useSelector(state => state);
+function WidgetTime({ timeZoneName }) {
+  const { dict, locale } = useSelector(state => state);
   const [currentDate, setCurrentDate] = React.useState(getCurrentDate());
 
   React.useEffect(() => {
@@ -24,7 +24,7 @@ function WidgetTime({ timeZoneName, lang = 'en-US' }) {
       timeZone: timeZoneName,
     };
     const date = new Date();
-    return date.toLocaleString(lang, dateOptions);
+    return date.toLocaleString(locale.substr(0, 2), dateOptions);
   }
 
   return (
