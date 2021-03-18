@@ -1,4 +1,4 @@
-export const url = "http://travel-app-team-52.herokuapp.com/";
+export const url = "https://travel-app-team-52.herokuapp.com/";
 
 export const getCountries = (lang) => {
   return fetch(`${url}countries?lang=${lang}`)
