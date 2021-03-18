@@ -7,6 +7,9 @@ import './Map.scss';
 
 export default function Map({ data }) {
   const { locale } = useSelector(state => state);
+  const { zoom = 6, capital, geometry } = data
+
+  console.log(data)
 
   return (
     <div className="wrapper map-wrapper">
@@ -22,8 +25,8 @@ export default function Map({ data }) {
         height='100%'
         className='map'
         defaultState={{
-          center: data.capital.coordinates,
-          zoom: data.zoom
+          center: capital.coordinates,
+          zoom: zoom
         }}
         defaultOptions={{
           autoFitToViewport: 'always',
@@ -33,16 +36,17 @@ export default function Map({ data }) {
       >
         <FullscreenControl/>
         <Placemark
-          geometry={data.capital.coordinates}
+          geometry={capital.coordinates}
           properties={{
-            iconCaption: data.capital.name,
+            iconCaption: capital.name,
           }}
           options={{
             preset: 'islands#redDotIconWithCaption'
           }}
         />
-        { data.geometry && data.geometry.map(poly => (
+        { geometry && geometry.map((poly, i) => (
           <Polygon
+            key={i}
             geometry={poly}
             options={{
               fillColor: '#FF000011',
