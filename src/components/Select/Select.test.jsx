@@ -7,7 +7,6 @@ import "babel-polyfill";
 
 import Select from "./Select";
 import { createStore } from "redux";
-import { shallow } from "enzyme";
 
 describe("Search", () => {
   const renderComp = () =>
