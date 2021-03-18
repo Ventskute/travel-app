@@ -57,6 +57,7 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 
       delete attraction.countryISO;
       delete attraction.lang;
+      addUrl(attraction, "image", ctx.request.origin);
 
       attraction.name = name;
       attraction.description = description;
