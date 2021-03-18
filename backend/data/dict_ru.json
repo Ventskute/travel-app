@@ -10,8 +10,16 @@
   "WEATHER_TYPE": "Тип погоды",
   "CURRENCIES": "Курсы валют",
   "DATE_TIME": "Дата/время столицы",
+  "LOGIN": "Войти",
+  "LOGOUT": "Выйти",
+  "SIGNUP": "Регистрация",
   "COUNTRIES": "Страны",
   "CAPITAL": "Столица",
   "WEATHER": "Погода сегодня",
+  "SUBMIT": "Подтвердить",
+  "NAME": "Имя",
+  "PASSWORD": "Пароль",
+  "NAME_TAKEN": "Это имя уже занято",
+  "NAME_INCORRECT": "Имя или пароль неверны",
   "ADD_AVATAR": "Выбрать аватар"
 }

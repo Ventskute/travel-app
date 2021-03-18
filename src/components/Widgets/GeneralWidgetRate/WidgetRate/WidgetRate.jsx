@@ -6,7 +6,7 @@ function RateWidget({ currency, toConvert }) {
 
   React.useEffect(() => {
     fetch(
-      `https://free.currconv.com/api/v7/convert?q=${toConvert}_${currency}&compact=ultra&apiKey=c777740154b54cff282f`,
+      `https://free.currconv.com/api/v7/convert?q=${toConvert}_${currency}&compact=ultra&apiKey=d1639f3bc06eda64e4bf`,
     )
       .then((res) => res.json())
       .then((data) => setRate(data[`${toConvert}_${currency}`]));

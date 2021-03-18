@@ -34,9 +34,7 @@ function Country() {
       {countryState && (
         <React.Fragment>
           <CountryPromo countryState={countryState} />
-          <section className="attractions">
-            <GeneralAttractions countryState={countryState} />
-          </section>
+          <GeneralAttractions countryState={countryState} />
           <Map data={data} />
           <section className="video">
             <div

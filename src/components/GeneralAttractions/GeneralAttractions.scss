@@ -1,11 +1,16 @@
+.attractions {
+  margin-top: 20px;
+}
+
 .attractions-info {
+  padding: 20px 0;
+  font-size: 18px;
   background-color: #f6f6f6;
 }
 
 .attractions-info__wrapper {
   display: flex;
   justify-content: space-between;
-  // padding: 30px 70px 5px;
 }
 
 .country-slider {
@@ -16,6 +21,5 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 5px 70px 30px;
 }
 

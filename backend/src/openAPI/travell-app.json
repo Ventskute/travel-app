@@ -284,7 +284,7 @@
           },
           "ISOCode": {
             "type": "string",
-            "example": "BY"
+            "example": "BLR"
           },
           "capital": {
             "$ref": "#/components/schemas/Capital"

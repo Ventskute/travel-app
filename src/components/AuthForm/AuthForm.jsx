@@ -11,7 +11,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
     "https://www.pinclipart.com/picdir/big/15-154296_gender-neutral-user-account-icon-png-clipart.png"
   );
   const [loginValue, setLoginValue] = useState("");
-  const [loginPlaceHolder, setLoginPlaceHolder] = useState("name");
+  const [loginPlaceHolder, setLoginPlaceHolder] = useState(dict.NAME);
 
   // const form = useRef(null);
 
@@ -29,8 +29,8 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
     if (resStatus === 403) {
       setLoginValue("");
       isSignup
-        ? setLoginPlaceHolder("this name already taken")
-        : setLoginPlaceHolder("name or password is incorrect");
+        ? setLoginPlaceHolder(dict.NAME_TAKEN)
+        : setLoginPlaceHolder(dict.NAME_INCORRECT);
     } else if (resStatus === 200) {
       if (resUser) {
         setUser({
@@ -50,11 +50,9 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
   };
 
   return (
-    <div className="auth-modal">
+    <div className="auth-modal" onClick={closeForm}>
       <div className="auth-form-container">
-        <button className="auth-form--close-button" onClick={closeForm}>
-          close
-        </button>
+        <div className="close" onClick={closeForm}>X</div>
         <h2 className="auth-form--title">{isSignup ? "Signup" : "Signin"} form</h2>
         <form className="auth-form" onSubmit={submit}>
           <input
@@ -68,13 +66,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
               setLoginValue(e.target.value);
             }}
           />
-          <input
-            type="password"
-            name="password"
-            className="auth-form--input"
-            required
-            placeholder="password"
-          />
+          <input type="password" name="password" className="auth-form--input" required placeholder={dict.PASSWORD} />
           {isSignup && (
             <label
               className="add-avatar-btn auth-form--input_file"
@@ -91,7 +83,7 @@ const AuthForm = ({ isSignup, setUser, closeForm }) => {
               {dict.ADD_AVATAR}
             </label>
           )}
-          <input type="submit" className="auth-form_submit" value="submit" />
+          <input type="submit" className="auth-form_submit" value={dict.SUBMIT} />
         </form>
       </div>
     </div>
