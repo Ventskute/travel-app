@@ -3,8 +3,15 @@
   "MAP": "map",
   "SEARCH_PLACEHOLDER": "Country or capital...",
   "COUNTRY_OF_THE_DAY": "Country of the day — ",
+  "TEMPERATURE": "Temperature",
+  "WIND_SPEED": "Wind speed",
+  "WIND_SPEED_VAL": "m/s",
+  "HUMIDITY": "Humidity",
+  "WEATHER_TYPE": "Weather type",
+  "CURRENCIES": "Currencies rates",
+  "DATE_TIME": "Capital date/time",
   "COUNTRIES": "Countries",
   "CAPITAL": "Capital",
-  "WEATHER": "The weather today",
+  "WEATHER": "Weather in",
   "ADD_AVATAR": "Choose avatar"
 }

@@ -13,7 +13,7 @@ function CountryPromo({ countryState }) {
       <div className="container">
         <div className="country-promo__card">
           <h2 className="card__title">{name}</h2>
-          <h3>{dict.CAPITAL} — {capital.name}</h3>
+          <h3>{dict.CAPITAL}: {capital.name}</h3>
           <p className="card__subtitle">
             {description}
           </p>

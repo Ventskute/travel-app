@@ -18,16 +18,19 @@ export default function Weather({ city }) {
 
   return (
     <div className="widget weather-widget">
-      <h3 className="weather-widget__title">{dict.WEATHER}</h3>
-      <h3 className="city">{city}</h3>
+      <h3 className="weather-widget__title">{dict.WEATHER} {city}</h3>
       {weatherData &&
-        <h4 className="weather-widget__content">
+        <p className="weather-widget__content">
           <i className={`weather-icon owf owf-${weatherData.weather[0].id} owf-3x`}></i>
-          <div className="temperature">{weatherData.main.temp.toFixed(0)}°C</div>
-          <div className="weather-description">{weatherData.weather[0].description}</div>
-          <div className="speed-wind"> {weatherData.wind.speed} m/s</div>
-          <div className="air-humidity">{weatherData.main.humidity} % </div>
-          </h4>
+          <div className="temperature">
+            {dict.TEMPERATURE}: {weatherData.main.temp.toFixed(0)}°C
+          </div>
+          <div className="weather-description">{dict.WEATHER_TYPE}: {weatherData.weather[0].description}</div>
+          <div className="speed-wind">
+            {dict.WIND_SPEED}: {weatherData.wind.speed} {dict.WIND_SPEED_VAL}
+          </div>
+          <div className="air-humidity">{dict.HUMIDITY}: {weatherData.main.humidity}% </div>
+        </p>
       }
     </div>
   );

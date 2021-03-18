@@ -9,18 +9,23 @@ import YouTubeVideo from "../../components/Video/YouTubeVideo";
 
 import data from "../../components/Map/blr.json";
 
-import "./Country.scss";
-import { getCountry } from "../../utils/api";
-import { useSelector } from "react-redux";
+import './Country.scss';
+import { getCountry, getLocaleTxt } from '../../utils/api';
+import { useDispatch, useSelector } from 'react-redux';
+import actions from '../../utils/actions';
 
 function Country() {
-  const { locale } = useSelector((state) => state);
+  const { locale } = useSelector(state => state);
+  const dispatch = useDispatch();
+
   const [countryState, setCountryState] = React.useState(null);
 
   let { ISOCode } = useParams();
 
   React.useEffect(() => {
-    getCountry(locale, ISOCode).then((res) => setCountryState(res));
+    getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
+    getCountry(locale, ISOCode)
+      .then((res) => setCountryState(res))
   }, []);
 
   return (
