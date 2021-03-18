@@ -6,6 +6,7 @@ const path = require("path");
 const countryRouter = new Router({ prefix: "/countries" });
 const pathToData = path.resolve(__dirname, "../../data/");
 const pathToAttractions = path.resolve(pathToData, "attractions.json");
+const pathToCountries = path.resolve(pathToData, "countries.json");
 
 const parseCountry = (country, lang) => {
   const { name, capitalName, description } = country.lang[lang];
@@ -21,12 +22,16 @@ const parseCountry = (country, lang) => {
   return country;
 };
 
+const addUrl = (obj, prop, url) => {
+  obj[prop] = url + "/" + obj[prop];
+};
+
 countryRouter.get("/", async (ctx, next) => {
   const { lang = "ru_RU" } = ctx.query;
-  const countries = JSON.parse(
-    fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
-  ).map((country) => {
+
+  const countries = JSON.parse(fs.readFileSync(pathToCountries, "utf-8")).map((country) => {
     const parsedCountry = parseCountry(country, lang);
+    addUrl(parsedCountry, "image", ctx.request.origin);
     delete parsedCountry.description;
     return parsedCountry;
   });
@@ -38,10 +43,9 @@ countryRouter.get("/", async (ctx, next) => {
 
 countryRouter.get("/:ISOCode", async (ctx, next) => {
   const ISOCode = ctx.params.ISOCode;
+
   const { lang = "ru_RU" } = ctx.query;
-  const countries = JSON.parse(
-    fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
-  );
+  const countries = JSON.parse(fs.readFileSync(pathToCountries, "utf-8"));
   const country = countries.find((country) => country.ISOCode === ISOCode);
   if (country) {
     const users = JSON.parse(fs.readFileSync(path.resolve(pathToData, "users.json"), "utf-8"));
@@ -50,9 +54,9 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
     );
 
     const parsedCountry = parseCountry(country, lang);
+    addUrl(parsedCountry, "image", ctx.request.origin);
     parsedCountry.attractions = attractions.map((attraction) => {
-      const name = attraction.lang[lang].name;
-      const description = attraction.lang[lang].description;
+      const { name, description } = attraction.lang[lang];
 
       delete attraction.countryISO;
       delete attraction.lang;
@@ -61,12 +65,15 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
       attraction.description = description;
 
       if (attraction.ratings) {
-        attraction.ratings = attraction.ratings.map((rating) => {
-          rating.user = users.find((user) => user.login === rating.userLogin);
-          rating.user && delete rating.user.password;
-          delete rating.userLogin;
-          return rating;
-        });
+        attraction.ratings = [
+          ...attraction.ratings.map((rating) => {
+            rating.user = { ...users.find((user) => user.login === rating.userLogin) };
+            delete rating.user.password;
+            delete rating.userLogin;
+            addUrl(rating.user, "avatar", ctx.request.origin);
+            return rating;
+          }),
+        ];
       }
       return attraction;
     });
@@ -79,9 +86,8 @@ countryRouter.get("/:ISOCode", async (ctx, next) => {
 
 countryRouter.get("/countryoftheday", async (ctx, next) => {
   const { lang = "ru_RU" } = ctx.query;
-  const countries = JSON.parse(
-    fs.readFileSync(path.resolve(pathToData, "countries.json"), "utf-8")
-  );
+
+  const countries = JSON.parse(fs.readFileSync(pathToCountries, "utf-8"));
   const country = countries[new Date().getDate() % countries.length];
 
   ctx.response.set("content-type", "application/json");
@@ -91,16 +97,30 @@ countryRouter.get("/countryoftheday", async (ctx, next) => {
 });
 
 countryRouter.post("/:ISOCode/:attractionId", koaBody(), async (ctx, next) => {
-  const params = ctx.query;
-
+  const { login, score } = ctx.query;
+  const newRating = { userLogin: login, score };
   const { attractionId, ISOCode } = ctx.params;
+
   const attractions = JSON.parse(fs.readFileSync(pathToAttractions), "utf-8");
   const attraction = attractions.find((attraction) => attraction.id === attractionId);
-  attraction.ratings.push(params);
-  attraction.rating = Math.floor(
-    attraction.ratings.reduce((acc, rait) => acc + rait.score, 0) / attraction.ratings.length
-  );
-  fs.writeFileSync(pathToAttractions, JSON.stringify(attractions));
+  if (attraction) {
+    if (!attraction.ratings) {
+      attraction.ratings = [];
+    }
+    const userIndex = attraction.ratings.findIndex((rating) => {
+      return rating.userLogin === login;
+    });
+    userIndex !== -1
+      ? (attraction.ratings[userIndex] = newRating)
+      : attraction.ratings.push(newRating);
+    attraction.rating = Math.floor(
+      attraction.ratings.reduce((acc, rait) => acc + +rait.score, 0) / attraction.ratings.length
+    );
+    fs.writeFileSync(pathToAttractions, JSON.stringify(attractions));
+    ctx.status = 200;
+  } else {
+    ctx.status = 404;
+  }
   await next();
 });
 
