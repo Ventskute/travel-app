@@ -32,7 +32,12 @@ export default function Header({ children }) {
     dispatch({ type: actions.SET_USER, user: user });
   };
   const closeAuthForm = (e) => {
-    if (e.target === e.currentTarget) {
+    if (!e) {
+      dispatch({
+        type: actions.SET_AUTHFORM,
+        payload: { isFormOpen: false }
+      });
+    } else if (e.target === e.currentTarget) {
       dispatch({
         type: actions.SET_AUTHFORM,
         payload: { isFormOpen: false }
@@ -53,10 +58,6 @@ export default function Header({ children }) {
   return (<>
       <header>
         <div className="container">
-          <Link to="/">
-            <p className="logo_title" ref={logo}>TRAVEL APP</p>
-          </Link>
-
           <div className="login-buttons">
             { !user && <>
               <button className="login-button" onClick={openSignupForm}>{dict.SIGNUP}</button>
@@ -72,6 +73,10 @@ export default function Header({ children }) {
               <button className="login-button" onClick={logoutUser}>{dict.LOGOUT}</button>
             </>}
           </div>
+
+          <Link to="/">
+            <p className="logo_title" ref={logo}>TRAVEL APP</p>
+          </Link>
 
           {children && children}
         </div>

@@ -15,6 +15,7 @@ export default function Swiper({countryState, setCurrentImage}) {
     setimages(countryState.attractions.map((el,index)=>{
       return {
         original: el.image,
+        originalClass: 'image-gallery__image',
         thumbnail: el.image
       }
     }))
@@ -24,6 +25,8 @@ export default function Swiper({countryState, setCurrentImage}) {
   return (
     images && <ImageGallery
       items={images}
+      lazyLoad={true}
+      thumbnailPosition="top"
       onSlide={(index) => {
         setCurrentImage(index);
       }}

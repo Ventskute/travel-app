@@ -36,7 +36,7 @@ function Country() {
           <Map data={countryState} />
           <section className="video">
             <div
-              className="video-wrapper container"
+              className="video-wrapper"
               style={{ backgroundImage: `url(${countryState.promo})` }}
             >
               <h2 className="video__title">{countryState.name}</h2>

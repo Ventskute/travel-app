@@ -9,8 +9,6 @@ export default function Map({ data }) {
   const { locale } = useSelector(state => state);
   const { zoom = 6, capital, geometry } = data
 
-  console.log(data)
-
   return (
     <div className="wrapper map-wrapper">
     <YMaps

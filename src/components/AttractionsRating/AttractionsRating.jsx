@@ -1,92 +1,104 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AllUsersRatings from './AllUsersRatings/AllUsersRatings';
 import './AttractionsRating.scss';
-import ava1 from '../../assets/img/slider-img1.jpeg';
-import ava2 from '../../assets/img/slider-img2.jpeg';
-import ava3 from '../../assets/img/slider-img3.jpeg';
+import { useSelector } from 'react-redux';
+import { postAttractionRating } from '../../utils/api';
 
 function AttractionsRating({ currentImage, countryState }) {
-  //временные данные (потом возьмем с бэка)
-  const [ratings, setratings] = React.useState([
-    {
-      score: 0,
-      user: {
-        login: 'Vasya',
-        avatar: ava1,
-      },
-    },
-    {
-      score: 4,
-      user: {
-        login: 'Petya',
-        avatar: ava2,
-      },
-    },
-    {
-      score: 3,
-      user: {
-        login: 'vasya32',
-        avatar: ava3,
-      },
-    },
-  ]);
-  const currUser = 'vasya32';
-  //_________________________________________
+  const { attractions, ISOCode } = countryState;
 
-  const { attractions } = countryState;
-  const [rating, setRating] = React.useState(0);
-  const [totalRating, setTotalRating] = React.useState(attractions.rating || 0);
+  const [rating, setRating] = useState(0);
+  const [totalRating, setTotalRating] = useState(0);
+  const [showAll, setShowAll] = useState(false);
+
+  const { dict, user } = useSelector(state => state);
+
   const rateArr = Array(5).fill(null);
-  const [showAll, setShowAll] = React.useState(false);
 
-  React.useEffect(() => {
-    // проверка объекта проголосовавших на соответствие текущему пользователю и взятие его рейтинга, будет брать рейтинг после каждой смены картинки
-    countryState.attractions[currentImage].rating && countryState.attractions[currentImage].rating.map((el) => {
-      if (el.userLogin === currUser) {
-        setRating(el.score);
-      }
-    });
+  const calcTotal = () => {
+    let sum = 0;
+    let count = 1;
+
+    if (attractions[currentImage].ratings) {
+      sum = attractions[currentImage].ratings.reduce((acc, rate) => acc + rate.score, 0);
+      count = attractions[currentImage].ratings.length;
+    }
+
+    return Math.floor(sum / count)
+  }
+
+  useEffect(() => {
+    setRating(0);
+    console.log(attractions[currentImage].ratings);
+    if (attractions[currentImage].ratings) {
+      attractions[currentImage].ratings.map((el) => {
+        if (user && el.user.login === user.login) {
+          setRating(el.score);
+        }
+      });
+    }
+    setTotalRating(calcTotal())
   }, [currentImage]);
 
   const getRating = (index) => {
     setRating(index + 1);
-    // сдесь будет post рейтинга на бэк
-    //
-    // fetch(`http://localhost:8000/countries/CAN/dhuaggwyt?login=vasya322&score=${}`, {})
-    ratings.map((el) => {
-      if (el.user.login === currUser) {
-        el.score = index + 1;
-      }
-    });
+
+    postAttractionRating(ISOCode, attractions[currentImage].id, user.login, index + 1)
+
+    if (!attractions[currentImage].ratings) {
+      attractions[currentImage].ratings = [
+        {
+          user,
+          score: index + 1
+        }
+      ]
+    } else {
+      attractions[currentImage].ratings.forEach((el) => {
+        if (user && el.user.login === user.login) {
+          el.score = index + 1;
+        }
+      });
+    }
+
+    setTotalRating(calcTotal())
   };
 
   return (
     <div className="info">
-      <h3 className="info__title">{attractions[currentImage] && attractions[currentImage].name}</h3>
-      <div className="info__description">{attractions[currentImage] && attractions[currentImage].description}</div>
-
-      <div className={`attractions-rating`}>
+      <div className="attractions-rating__my-rating">
+        { user &&
+            <div className="rate-block">
+              {rateArr.map((el, index) => (
+                <div
+                  className={`attractions-rating__my-rating_point attractions-rating__point_${
+                    index >= rating ? 'disabled' : 'selected'
+                  }`}
+                  onClick={() => getRating(index)}
+                  key={index}></div>
+              ))}
+              <h3>{dict.MY_RATING}: {rating}</h3>
+            </div>
+          }
+          { !user &&
+            <h3>{dict.LOGIN_RATE_MESSAGE}</h3>
+          }
+          { totalRating !== 0 &&
+            <h3>{dict.TOTAL}: {totalRating}</h3>
+          }
+          { !totalRating &&
+            <h3>{dict.TOTAL_MESSAGE}</h3>
+          }
+      </div>
+      { attractions[currentImage].ratings && <>
         <button
           className={`button button__show-all-ratings`}
           onClick={() => (!showAll ? setShowAll(true) : setShowAll(false))}>
           {!showAll ? `show all ratings` : `close all ratings`}
         </button>
-        {showAll && <AllUsersRatings ratings={ratings} />}
-        <div className="attractions-rating__my-rating">
-          <div className="rate-block">
-            {rateArr.map((el, index) => (
-              <div
-                className={`attractions-rating__my-rating_point attractions-rating__point_${
-                  index >= rating ? 'disabled' : 'selected'
-                }`}
-                onClick={() => getRating(index)}
-                key={index}></div>
-            ))}
-          </div>
-          <div>{`My rating : ${rating}`}</div>
-          <div>{`Total: ${totalRating}`}</div>
-        </div>
-      </div>
+        {showAll && <AllUsersRatings ratings={attractions[currentImage].ratings} />}
+      </>}
+      <h3 className="info__title">{attractions[currentImage] && attractions[currentImage].name}</h3>
+      <div className="info__description">{attractions[currentImage] && attractions[currentImage].description}</div>
     </div>
   );
 }
