@@ -17,7 +17,7 @@ const getData = (key, initialValue) => {
   return result ? result : initialValue;
 };
 
-const initialState = {
+export const initialState = {
   locale: getData("lang", "ru_RU"),
   dict: {},
   user: getData("user", null),

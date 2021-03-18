@@ -17,7 +17,9 @@ export const getCountry = (lang, ISOCode) => {
 };
 
 export const postAttractionRating = (ISOCode, attractionId, userLogin, score) => {
-  return fetch(`${url}countries/${ISOCode}/${attractionId}?login=${userLogin}&score=${score}`, { method: 'POST' })
+  return fetch(`${url}countries/${ISOCode}/${attractionId}?login=${userLogin}&score=${score}`, {
+    method: "POST",
+  })
     .then((response) => response.ok)
     .catch((e) => {
       console.log("cant rate with error", e);
@@ -44,6 +46,7 @@ export const signin = (body) => {
 export const signup = (body) => {
   return fetch(`${url}signup`, { method: "POST", body: body })
     .then((res) => {
+      console.log(res);
       const response = res.status === 200 ? { status: res.status, user: res.json() } : res;
       return response;
     })
