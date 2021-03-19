@@ -88,6 +88,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
 
+      .dark-theme & {
+        background-color: $color-bg-dark;
+        color: $color-text-light;
+      }
+
       .close {
         position: absolute;
         right: 20px;

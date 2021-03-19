@@ -11,6 +11,11 @@
 body {
   background-color: $color-body;
   overflow-x: hidden;
+
+  &.dark-theme {
+    background-color: $color-bg-dark;
+    color: $color-text-light;
+  }
 }
 
 .container {

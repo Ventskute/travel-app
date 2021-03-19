@@ -1,8 +1,15 @@
+@import '../../variables.scss';
+
 .attractions {
   margin-top: 20px;
   background-color: white;
   padding: 20px 0 40px 0;
   font-size: 18px;
+
+  .dark-theme & {
+    background-color: $color-bg-card-dark;
+    color: $color-text-light;
+  }
 }
 
 .attractions-info {

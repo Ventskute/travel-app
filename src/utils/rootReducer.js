@@ -21,6 +21,7 @@ export const initialState = {
   locale: getData("lang", "ru_RU"),
   dict: {},
   user: getData("user", null),
+  darkTheme: getData("darkTheme", true),
   searchValue: "",
   authForm: {
     isFormOpen: false,

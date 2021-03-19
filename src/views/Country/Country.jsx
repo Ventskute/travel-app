@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
@@ -13,14 +13,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import actions from '../../utils/actions';
 
 function Country() {
-  const { locale } = useSelector(state => state);
+  const { locale, darkTheme } = useSelector(state => state);
   const dispatch = useDispatch();
 
   const [countryState, setCountryState] = React.useState(null);
 
   let { ISOCode } = useParams();
 
-  React.useEffect(() => {
+  useEffect(() => {
+    document.body.classList.toggle('dark-theme', darkTheme)
+  }, [darkTheme])
+
+  useEffect(() => {
     getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
     getCountry(locale, ISOCode)
       .then((res) => setCountryState(res))

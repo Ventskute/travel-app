@@ -11,10 +11,14 @@ import "./Main.scss";
 import Card from "../../components/Card/Card";
 
 export default function Main() {
-  const { locale, dict, searchValue } = useSelector((state) => state);
+  const { locale, dict, searchValue, darkTheme } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-theme', darkTheme)
+  }, [darkTheme])
 
   useEffect(() => {
     getLocaleTxt(locale).then((res) => dispatch({ type: actions.ADD_LOCALE, payload: res }));
