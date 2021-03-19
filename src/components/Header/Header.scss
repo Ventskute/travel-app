@@ -3,6 +3,10 @@
 header {
   margin-bottom: 20px;
 
+  .dark-theme & {
+    background-color: $color-bg-dark;
+  }
+
   .container {
     display: flex;
     justify-content: space-between;

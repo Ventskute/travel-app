@@ -26,6 +26,11 @@
   padding: 30px;
   backdrop-filter: blur(10px);
 
+  .dark-theme & {
+    background-color: $color-bg-card-dark;
+    color: $color-text-light;
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     margin-bottom: 0;
     width: 30%;

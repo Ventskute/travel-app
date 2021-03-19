@@ -21,6 +21,7 @@ export const initialState = {
   locale: getData("lang", "ru_RU"),
   dict: {},
   user: getData("user", null),
+  darkTheme: getData("darkTheme", false),
   searchValue: "",
   authForm: {
     isFormOpen: false,
@@ -30,6 +31,13 @@ export const initialState = {
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case actions.CHANGE_THEME: {
+      localStorage.setItem("darkTheme", action.payload);
+      return {
+        ...state,
+        darkTheme: action.payload,
+      };
+    }
     case actions.SET_LOCALE: {
       localStorage.setItem("lang", action.payload);
       return {

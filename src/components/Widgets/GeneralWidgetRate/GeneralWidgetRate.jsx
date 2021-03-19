@@ -18,7 +18,7 @@ function GeneralWidgetRate({ currency }) {
   return (
     <div className="widget rate-widget">
       <h3 className="rate__title">{dict.CURRENCIES}</h3>
-      {currency && currenciesToConvert.map((el, index) => <WidgetRate currency={currency} toConvert={el} rate={(1 / rate[el]).toFixed(2)} key={index} />)}
+      {currency && currenciesToConvert.map((el, index) => <WidgetRate currency={currency} toConvert={el} rate={(1 / rate[el]).toFixed(3)} key={index} />)}
     </div>
   );
 }
