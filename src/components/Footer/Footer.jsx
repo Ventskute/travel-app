@@ -1,6 +1,8 @@
 import React from "react";
 import GitHub from "../../assets/logo/GitHub.png";
 
+import ThemeToggler from '../ThemeToggler/ThemeToggler';
+
 import "./Footer.scss";
 
 const developers = [
@@ -37,6 +39,7 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+          <ThemeToggler />
           <a className="rss" href="https://rs.school/react/" target="_blank">
             <span className="rss-year">'21</span>
           </a>
