@@ -46,7 +46,6 @@ export const signin = (body) => {
 export const signup = (body) => {
   return fetch(`${url}signup`, { method: "POST", body: body })
     .then((res) => {
-      console.log(res);
       const response = res.status === 200 ? { status: res.status, user: res.json() } : res;
       return response;
     })
