@@ -20,6 +20,7 @@ function AttractionsRating({ currentImage, countryState }) {
     let count = 1;
 
     if (attractions[currentImage].ratings) {
+      console.log(sum, count)
       sum = attractions[currentImage].ratings.reduce((acc, rate) => acc + rate.score, 0);
       count = attractions[currentImage].ratings.length;
     }
