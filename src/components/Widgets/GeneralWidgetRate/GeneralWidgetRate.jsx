@@ -9,7 +9,7 @@ function GeneralWidgetRate({ currency }) {
 
   React.useEffect(() => {
     fetch(
-      `https://v6.exchangerate-api.com/v6/1807c95d26cb11a357c8ae3d/latest/${currency}`,
+      `https://v6.exchangerate-api.com/v6/c0486f36dd3dcdc9660282bc/latest/${currency}`,
     )
       .then((res) => res.json())
       .then((data) => setRate(data.conversion_rates));
