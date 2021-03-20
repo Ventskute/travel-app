@@ -1,0 +1,101 @@
+@import '../../variables.scss';
+
+footer {
+  background-color: white;
+
+  .dark-theme & {
+    border-top: 2px solid $color-text-light;
+    background-color: $color-bg-dark;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 40px 0;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      li {
+        display: inline;
+        margin-right: 40px;
+        font-size: 20px;
+        text-transform: uppercase;
+
+        @media screen and (max-width: 768px) {
+          margin-right: 0;
+        }
+
+        a {
+          color: black;
+
+          .dark-theme & {
+            color: $color-text-light;
+          }
+
+          &:hover {
+            color: $color-focus;
+          }
+        }
+      }
+    }
+  }
+
+  .github_logo {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+
+    .dark-theme & {
+      filter: invert(1);
+    }
+  }
+
+  .rss {
+    display: block;
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    width: 86px;
+    height: 32px;
+    background-image: url("../../assets/logo/rs_school_js.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-right: 111px;
+
+    .dark-theme & {
+      filter: invert(1);
+    }
+  }
+
+  .rss-year {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 21px;
+    letter-spacing: -2px;
+    color: #0f0f0f;
+    line-height: 0.9;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .rss:hover .rss-year {
+    right: -5px;
+    letter-spacing: 0;
+  }
+}
+
